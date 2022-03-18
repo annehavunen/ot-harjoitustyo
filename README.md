@@ -17,4 +17,4 @@ Kollaasisovellus on ohjelmisto, jolla käyttäjä voi tehdä kollaaseja kirjoitt
 Kuvia ja tekstejä voi helposti liikutella hiiren avulla. Niiden kokoa voi myös vaihdella.
 Käytön on tarkoitus olla käyttäjälle vaivatonta ja helposti opittavaa.
 
-> Lataa sinäkin Kollaattori!
+> Lataa sinäkin oma Kollaattorisi!
