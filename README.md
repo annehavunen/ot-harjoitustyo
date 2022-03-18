@@ -1,9 +1,15 @@
-# Kollaattori
-## Sovellus vaivattomaan kollaasien tekemiseen
+# Ohjelmistotekniikka
+## Tehtävät
 
+###### Viikko 1
+
+[komentorivi.txt](https://github.com/annehavunen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+###### Sovellus
+**Kollaattori**
+*Sovellus vaivattomaan kollaasien tekemiseen*
 
 Kollaasisovellus on ohjelmisto, jolla käyttäjä voi tehdä kollaaseja kirjoittamalla ruudulle tekstiä ja lisäämällä kuvia.
 Kuvia ja tekstejä voi helposti liikutella hiiren avulla. Niiden kokoa voi myös vaihdella.
-Käytön on tarkoitus olla käyttäjälle **vaivatonta ja helposti opittavaa**.
+Käytön on tarkoitus olla käyttäjälle vaivatonta ja helposti opittavaa.
 
-*Last edited: 2022-03-18*
