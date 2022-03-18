@@ -1,0 +1,132 @@
+commit 46506e45b35ab1aa3f9d563589d2c0df338939e3
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 17:07:00 2022 +0200
+
+    file22 mukaan
+
+ tiedostoja/file22 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 072cdb31967ed5a001cce84dbfde7522c2e5f4c1
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 17:03:43 2022 +0200
+
+    fileiden leikkaus
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f1ba7b819f027fd9d471fab2f58355e1696b4db4
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:57:55 2022 +0200
+
+    kansio tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3b2bb7cc0e39fafe36d52e67691a468d371e4ef2
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:49:42 2022 +0200
+
+    muutos ekaan ja kolmanteen
+
+ eka.txt    | 6 +++++-
+ kolmas.txt | 4 +++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit f581c3c8ba829bd9806143e4ef1839b1c21a3a5f
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:43:34 2022 +0200
+
+    uudelleennimentä
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1aaf746d3bba3c453e9d45386daa7353f78a6d08
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:41:32 2022 +0200
+
+    tiedosto.txt uudestaan vahingon takia
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit b8dc75793da6fb0da6c7ae94a2369b95f0fe6761
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:36:14 2022 +0200
+
+    toinen.txt poistettu
+
+ tiedosto.txt | 10 ----------
+ toinen.txt   |  1 -
+ 2 files changed, 11 deletions(-)
+
+commit 6b52d24185e8d795628306b33ba87139e6145b31
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:31:56 2022 +0200
+
+    tiedosto.txt muutoksia
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 1d1a10cf9af338ea490926aab80cefe4c9a9e81c
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 16:29:18 2022 +0200
+
+    tiedosto.txt
+
+ tiedosto.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 9e5d492fff2d47b745b41ba30be5417f97f375de
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 15:18:19 2022 +0200
+
+    stuff luotu
+
+ stuff/kosketus.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7d40debc7f73ab67e8a112573b6d5a8bddec284c
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 15:15:13 2022 +0200
+
+    muutokset t.6
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 061363487309b40ec29c5fa3dc34fde726d68f00
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 15:12:18 2022 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ad072302bba0c13ccb5f65d4859efe5abc03d81c
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 15:06:19 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit bcc3e9c453fe3d72bc303bf2310149e1039f9178
+Author: Anne Havunen <anne.havunen@helsinki.fi>
+Date:   Fri Mar 18 14:55:49 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
