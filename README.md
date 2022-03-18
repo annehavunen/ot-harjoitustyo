@@ -1,5 +1,5 @@
-#Kollaattori
-##Sovellus vaivattomaan kollaasien tekemiseen
+# Kollaattori
+## Sovellus vaivattomaan kollaasien tekemiseen
 
 
 Kollaasisovellus on ohjelmisto, jolla käyttäjä voi tehdä kollaaseja kirjoittamalla ruudulle tekstiä ja lisäämällä kuvia.
