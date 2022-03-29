@@ -9,6 +9,7 @@
 
 ## Viikko 2
 
+[vaatimusmaarittely.md](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 ## Sovellus
 **Reseptikirja**
