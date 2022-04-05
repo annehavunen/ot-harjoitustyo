@@ -1,6 +1,7 @@
 # Recipe Book
 
-Sovelluksen avulla käyttäjän on mahdollista luoda oma reseptikirja.   
+Sovelluksen avulla käyttäjän on mahdollista luoda oma reseptikirja.
+Käyttäjä voi lisätä, selata ja poistaa reseptejä.
 
 ## Dokumentointi
 
@@ -8,4 +9,4 @@ Sovelluksen avulla käyttäjän on mahdollista luoda oma reseptikirja.
 
 [tuntikirjanpito.md](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[Changelog]()
+[Changelog](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
