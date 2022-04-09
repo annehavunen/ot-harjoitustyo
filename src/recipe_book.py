@@ -19,7 +19,7 @@ class RecipeBook:
             command = input("Command: ")
             if command == "x":
                 break
-            elif command == "1":
+            if command == "1":
                 self.add_recipe()
             elif command == "2":
                 self.print_recipes()
@@ -27,11 +27,11 @@ class RecipeBook:
                 self.remove_recipe()
             else:
                 self.print_commands()
-        
+
     def add_recipe(self):
         name = input("Name of the recipe: ")
         self.recipe_service.add_recipe(name)
-    
+
     def print_recipes(self):
         self.recipe_service.print_recipes()
 
@@ -40,9 +40,8 @@ class RecipeBook:
         self.recipe_service.remove_recipe(name)
 
     def print_commands(self):
-        for command in commands:
-            print(commands[command])
-
+        for command in commands.values():
+            print(command)
 
 # if __name__ == "__main__":
 #     reseptikirja = RecipeBook()

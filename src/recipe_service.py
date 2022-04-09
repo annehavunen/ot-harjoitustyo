@@ -13,10 +13,10 @@ class RecipeService:
     def print_recipes(self):
         recipes = self.repository.get_recipes()
         print("List of all recipes:")
-        for r in recipes:
-            print(r)
+        for recipe in recipes:
+            print(recipe)
         print()
-    
+
     def remove_recipe(self, name):
         recipes = self.repository.get_recipes()
         doesnt_exist = True
@@ -28,4 +28,3 @@ class RecipeService:
         if doesnt_exist:
             print(f"There is no recipe called {name}")
         print()
-        
