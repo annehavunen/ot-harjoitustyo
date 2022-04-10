@@ -20,4 +20,11 @@
   - Invoke-tehtävien toteuttaminen
   - Ensimmäisen testin toteuttaminen
 
-## Työtunnit yhteensä: 9
+## 9.4.2022
+- Työtunnit: 5
+- Mitä tein
+  - Pylint:in asennus ja virheiden korjaus
+  - README:n täydentäminen
+  - SQLite-tietokannan liittämisen aloittaminen
+
+## Työtunnit yhteensä: 14
