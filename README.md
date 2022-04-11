@@ -20,12 +20,12 @@ Käyttäjä voi lisätä, selata ja poistaa reseptejä.
 Ohjelman pystyy suorittamaan komennolla:
 > poetry run invoke start
 
-###Testaus
+### Testaus
 
 Testit suoritetaan komennolla:
 > poetry run invoke test
 
-###Testikattavuus
+### Testikattavuus
 
 Testikattavuusraportin voi generoida komennolla:
 > poetry run invoke coverage-report
