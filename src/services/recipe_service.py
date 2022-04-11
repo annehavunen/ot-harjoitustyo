@@ -10,7 +10,9 @@ class RecipeService:
 
     def add_recipe(self, name, url):
         recipe = Recipe(name, url)
-        self.repository.add_recipe(recipe)
+        added = self.repository.add_recipe(recipe)
+        if not added:
+            print(f"Recipe with the name {name} exists already.")
         print()
 
     def print_recipes(self):

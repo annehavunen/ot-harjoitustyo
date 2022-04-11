@@ -36,5 +36,5 @@ def initialize_database():
     create_tables(connection)
 
 
-if __name__ == "__main__":
-    initialize_database()
+# if __name__ == "__main__":
+#     initialize_database()

@@ -1,4 +1,4 @@
-from recipe_service import RecipeService
+from services.recipe_service import RecipeService
 
 
 commands = {

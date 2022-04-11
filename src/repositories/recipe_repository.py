@@ -1,17 +1,18 @@
-#from database_connection import get_database_connection
+from database_connection import get_database_connection
 from entities.recipe import Recipe
+
 
 class RecipeRepository:
     def __init__(self, connection):
         self._connection = connection
-        self.recipe_list = []
 
     def add_recipe(self, recipe):
-#        self.recipe_list.append(recipe)
-#        def create(self, user):
-
         cursor = self._connection.cursor()
-        cursor.execute('INSERT INTO Recipes (name, url) VALUES (?, ?)', (recipe.name, recipe.url))
+        same_name = cursor.execute('SELECT name FROM Recipes WHERE name = (?)', [recipe.name]).fetchone()
+        if not same_name:
+            cursor.execute('INSERT INTO Recipes (name, url) VALUES (?, ?)', (recipe.name, recipe.url))
+            return True
+        return False
 
     def get_recipes(self):
         return self.recipe_list
@@ -19,8 +20,6 @@ class RecipeRepository:
     def remove_recipe(self, name):
         cursor = self._connection.cursor()
         removed = cursor.execute('SELECT name FROM Recipes WHERE name = (?)', [name]).fetchone()
-#        if removed == None:
-#            print("There is no")
         cursor.execute('DELETE FROM Recipes WHERE name = (?)', [name])
         #self.recipe_list.remove(recipe)
         return removed
@@ -53,3 +52,4 @@ class RecipeRepository:
 
 #user_repository = RecipeRepository(get_database_connection())
 #users = user_repository.find_all()
+recipe_repository = RecipeRepository(get_database_connection())

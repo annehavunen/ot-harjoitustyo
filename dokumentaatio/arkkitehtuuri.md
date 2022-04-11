@@ -1,0 +1,1 @@
+![arkkitehtuuri](/kuvat/arkkitehtuuri.png)
