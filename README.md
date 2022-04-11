@@ -11,6 +11,8 @@ Käyttäjä voi lisätä, selata ja poistaa reseptejä.
 
 - [Changelog](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 
+- [Arkkitehtuurikuvaus](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
 
 ### Ohjelman suorittaminen
