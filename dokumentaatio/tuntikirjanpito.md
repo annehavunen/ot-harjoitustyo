@@ -39,9 +39,12 @@
   - Sovelluksen alustavan luokkakaavion tekeminen
 
 ### 12.4.2022
-- Työtunnit:
+- Työtunnit: 4
 - Mitä tein
   - Dokumentaation päivittäminen
   - Pylint-testien mukainen korjaus
+  - Funktion lisääminen reseptin nimen ja osoitteen muuttamiselle
+  - Uusi luokka käskyjen tulostamiselle
+  - Yleistä koodin parantelua
 
-### Työtunnit yhteensä: 21
+### Työtunnit yhteensä: 26
