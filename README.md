@@ -34,5 +34,5 @@ Raportti generoituu *htmlcov*-hakemistoon.
 
 ### Pylint
 
-Tiedoston .pylintrc määrittelemät tarkistukset voi suorittaa komennolla:
+Tiedoston [.pylintrc](https://github.com/annehavunen/ot-harjoitustyo/blob/master/.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
 > poetry run invoke lint
