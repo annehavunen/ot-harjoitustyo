@@ -1,7 +1,7 @@
+import webbrowser
 from repositories.recipe_repository import RecipeRepository
 from entities.recipe import Recipe
 from database_connection import get_database_connection
-import webbrowser
 
 
 class RecipeService:
@@ -23,13 +23,17 @@ class RecipeService:
 
     def remove_recipe(self, name):
         removed = self.repository.remove_recipe(name)
-        if removed == None:
+        if removed is None:
             print(f"There is no recipe called {name}")
         else:
             print(f"{name} removed")
         print()
 
-    def open_recipe(self, title):
-        url = self.repository.get_url(title)
-        webbrowser.open(url)
+    def open_recipe(self, name):
+        exists = self.repository.find_recipe(name)
+        if exists is None:
+            print(f"There is no recipe called {name}")
+        else:
+            url = self.repository.get_url(name)
+            webbrowser.open(url)
         print()

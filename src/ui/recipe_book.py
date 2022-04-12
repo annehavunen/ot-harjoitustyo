@@ -5,8 +5,8 @@ commands = {
     "x": "x exit",
     "1": "1 add a recipe",
     "2": "2 print recipes",
-    "3": "3 remove a recipe",
-    "4": "4 open a recipe"
+    "3": "3 open a recipe",
+    "4": "4 remove a recipe"
 }
 
 
@@ -31,9 +31,9 @@ class RecipeBook:
             elif command == "2":
                 self.print_recipes()
             elif command == "3":
-                self.remove_recipe()
-            elif command == "4":
                 self.open_website()
+            elif command == "4":
+                self.remove_recipe()
             else:
                 self.print_commands()
 
