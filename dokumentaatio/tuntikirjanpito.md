@@ -44,7 +44,7 @@
   - Dokumentaation päivittäminen
   - Pylint-testien mukainen korjaus
   - Funktion lisääminen reseptin nimen ja osoitteen muuttamiselle
-  - Uusi luokka käskyjen tulostamiselle
+  - Uusi luokka PrintCommands käskyjen tulostamiselle
   - Yleistä koodin parantelua
 
 ### Työtunnit yhteensä: 26
