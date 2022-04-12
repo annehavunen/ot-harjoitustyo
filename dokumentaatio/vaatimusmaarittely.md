@@ -15,7 +15,7 @@ Suuremmilla oikeuksilla varustettua pääkäyttäjää ei todennäköisesti tule
 - Uutta reseptiä luodessa aukeaa käyttäjälle valmis pohja reseptin kirjoittamista varten
 - Reseptit voi sijoittaa eri kategorioihin, esimerkiksi kasvis-, kala- ja liharuokiin, suolaisiin ja makeisiin leivonnaisiin, keittoihin sekä naposteltaviin. Reseptin voi halutessaan sijoittaa yhteen tai useampaan eri kategoriaan
 - Reseptejä voi selata eri haku- ja järjestystoimintojen avulla. Voi esimerkiksi selata eri ruokakategorioita, kaikkia reseptejä aakkosjärjesteyksessä ja kaikkia reseptejä luomis-/muokkaamisjärjestyksessä. Lisäksi reseptejä voi etsiä hakusanojen mukaan
-- Reseptejä voi muokata jälkikäteen 
+- Reseptejä voi muokata jälkikäteen (__tehty tämänhetkisessä laajuudessa__)
 - Reseptejä voi poistaa (__tehty__)
 
 ## Jatkokehitysideoita
