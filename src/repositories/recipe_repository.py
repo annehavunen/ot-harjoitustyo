@@ -21,7 +21,6 @@ class RecipeRepository:
         cursor = self._connection.cursor()
         removed = cursor.execute('SELECT name FROM Recipes WHERE name = (?)', [name]).fetchone()
         cursor.execute('DELETE FROM Recipes WHERE name = (?)', [name])
-        #self.recipe_list.remove(recipe)
         return removed
 
     def get_url(self, name):
@@ -29,8 +28,6 @@ class RecipeRepository:
         cursor.execute('SELECT * FROM Recipes WHERE name = (?)', [name])
         recipe = cursor.fetchone()
         return Recipe(recipe["name"], recipe["url"]).url
-        #print([Recipe(row["name"], row["name"]) for row in recipe])
-        #return url
 
     def __iter__(self):
         self.iterator = 0
@@ -48,8 +45,5 @@ class RecipeRepository:
         cursor.execute("SELECT * FROM Recipes")
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
-#        return [Recipe(row["id"], row["name"]) for row in rows]
 
-#user_repository = RecipeRepository(get_database_connection())
-#users = user_repository.find_all()
 recipe_repository = RecipeRepository(get_database_connection())

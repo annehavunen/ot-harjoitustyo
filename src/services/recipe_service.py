@@ -17,9 +17,6 @@ class RecipeService:
 
     def print_recipes(self):
         recipes = self.repository.find_all()
-        # print(recipes)
-        # recipes = self.repository.get_recipes()
-        # print("List of all recipes:")
         for recipe in recipes:
             print(recipe)
         print()
@@ -30,19 +27,9 @@ class RecipeService:
             print(f"There is no recipe called {name}")
         else:
             print(f"{name} removed")
-        # recipes = self.repository.get_recipes()
-        # doesnt_exist = True
-        # for recipe in recipes:
-        #     if recipe.name == name:
-        #         self.repository.remove_recipe(recipe)
-        #         doesnt_exist = False
-        #         print(f"{name} removed")
-        # if doesnt_exist:
-        #     print(f"There is no recipe called {name}")
         print()
 
     def open_recipe(self, title):
         url = self.repository.get_url(title)
-        #print(url)
         webbrowser.open(url)
         print()

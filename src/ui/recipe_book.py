@@ -56,7 +56,3 @@ class RecipeBook:
     def open_website(self):
         title = input("Name of the recipe you want to open: ")
         self.recipe_service.open_recipe(title)
-
-# if __name__ == "__main__":
-#     reseptikirja = RecipeBook()
-#     reseptikirja.start()

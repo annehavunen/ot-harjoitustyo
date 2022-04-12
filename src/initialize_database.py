@@ -14,18 +14,13 @@ def drop_tables(connection):
 def create_tables(connection):
     cursor = connection.cursor()
 
-    # cursor.execute('''
-    #     CREATE TABLE Recipes (
-    #         id INTEGER PRIMARY KEY,
-    #         name TEXT
-    #     );
-    # ''')
     cursor.execute('''
         CREATE TABLE Recipes (
             name TEXT PRIMARY KEY,
             url TEXT
         );
     ''')
+
     connection.commit()
 
 
@@ -34,7 +29,3 @@ def initialize_database():
 
     drop_tables(connection)
     create_tables(connection)
-
-
-# if __name__ == "__main__":
-#     initialize_database()
