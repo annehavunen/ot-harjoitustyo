@@ -17,3 +17,4 @@
 - Testattu, että RecipeRepository lisää reseptin oikein
 - Testattu, että RecipeService lisää reseptin oikein
 - Testattu, että Recipe tallentaa osoitteen oikein
+- Ohjelmakoodi jaettu kansioihin

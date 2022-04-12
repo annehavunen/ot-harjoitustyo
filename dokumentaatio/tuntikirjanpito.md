@@ -30,12 +30,18 @@
 ### 10.4.2022
 - Työtunnit: 3
 - Mitä tein
-  - SQLite-tietokannan liittäminen reseptien nimille ja verkko-osoitteille
+  - reseptien nimien ja verkko-osoitteiden tallentaminen SQLite-tietokantaan
 
 ### 11.4.2022
-- Työtunnit:
+- Työtunnit: 4
 - Mitä tein
-  - RecipeRepository-luokan testien aloittaminen
+  - RecipeRepositoryn ja RecipeSercvicen testien aloittaminen
   - Sovelluksen alustavan luokkakaavion tekeminen
 
-### Työtunnit yhteensä: 17
+### 12.4.2022
+- Työtunnit:
+- Mitä tein
+  - Dokumentaation päivittäminen
+  - Pylint-testien mukainen korjaus
+
+### Työtunnit yhteensä: 21
