@@ -35,7 +35,7 @@
 ### 11.4.2022
 - Työtunnit: 4
 - Mitä tein
-  - RecipeRepositoryn ja RecipeSercvicen testien aloittaminen
+  - RecipeRepositoryn ja RecipeServicen testien aloittaminen
   - Sovelluksen alustavan luokkakaavion tekeminen
 
 ### 12.4.2022
