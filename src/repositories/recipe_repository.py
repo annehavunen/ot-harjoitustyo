@@ -52,7 +52,8 @@ class RecipeRepository:
         return added.lastrowid
     
     def add_recipe_category(self, recipe_id, category_id):
-        pass
+        print(recipe_id, category_id)
+        cursor = self._connection.cursor()
 
 
 # testejä

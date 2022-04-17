@@ -48,8 +48,9 @@
   - Yleistä koodin parantelua
 
 ### 17.4.2022
-- Työtunnit
+- Työtunnit 6
 - Mitä tein
-  - Tietokantaan uusi taulu Category
+  - Tietokantaan lisätty taulut Category ja Recipe_category
+  - Tietokantataulujen yhteistyön työstämistä
 
-### Työtunnit yhteensä: 26
+### Työtunnit yhteensä: 32

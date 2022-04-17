@@ -22,6 +22,7 @@ class RecipeService:
         print()
     
     def add_category(self, number):
+        type = ""
         if number == 1:
             type = "meat and poultry"
         elif number == 2:
