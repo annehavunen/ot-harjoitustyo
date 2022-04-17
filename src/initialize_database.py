@@ -5,21 +5,40 @@ def drop_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        drop table if exists Recipes;
+        DROP TABLE IF EXISTS Recipe;
+    ''')
+
+    #testausta
+    cursor.execute('''
+        DROP TABLE IF EXISTS Category;
     ''')
 
     connection.commit()
-
 
 def create_tables(connection):
     cursor = connection.cursor()
 
     cursor.execute('''
-        CREATE TABLE Recipes (
-            name TEXT PRIMARY KEY,
+        CREATE TABLE Recipe (
+            name TEXT,
             url TEXT
         );
     ''')
+
+# Testaa ensin: kategoria ilman mitään muuta
+    cursor.execute('''
+        CREATE TABLE Category (
+            name TEXT
+        );
+    ''')
+
+    # cursor.execute('''
+    #     CREATE TABLE Recipe (
+    #         id INTEGER PRIMARY KEY,
+    #         name TEXT,
+    #         url TEXT
+    #     );
+    # ''')
 
     connection.commit()
 

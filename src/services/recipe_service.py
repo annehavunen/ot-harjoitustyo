@@ -3,6 +3,7 @@ from repositories.recipe_repository import RecipeRepository
 from entities.recipe import Recipe
 from database_connection import get_database_connection
 from ui.print_commands import PrintCommands
+from entities.category import Category
 
 
 class RecipeService:
@@ -67,4 +68,15 @@ class RecipeService:
             print(f"There is no recipe called {name}")
         else:
             print(f"{name} removed")
+        print()
+    
+    def add_category(self, type):
+        category = Category(type)
+        self.repository.add_category(category)
+        print()
+    
+    def print_categories(self):
+        categories = self.repository.find_all_categories()
+        for category in categories:
+            print(category) # tarvitaanko tulostustoiminto
         print()

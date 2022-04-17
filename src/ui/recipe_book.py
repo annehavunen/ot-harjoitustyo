@@ -1,3 +1,4 @@
+#from unicodedata import category
 from services.recipe_service import RecipeService
 from ui.print_commands import PrintCommands
 
@@ -29,12 +30,20 @@ class RecipeBook:
                 self.change_recipe()
             elif command == "5":
                 self.remove_recipe()
+            # testi
+            elif command == "6":
+                self.add_category()
+            elif command == "7":
+                self.print_categories()
+            # testi päättyy
             else:
                 self.printer.print_main_commands()
 
     def add_recipe(self):
         name = input("Name of the recipe: ")
         url = input("URL of the recipe: ")
+        # kategoriatesti
+        #type = input("Category of the recipe: ")
         self.recipe_service.add_recipe(name, url)
 
     def print_recipes(self):
@@ -66,7 +75,7 @@ class RecipeBook:
 
         if command == "r":
             print()
-            self.print_commands()
+            self.printer.print_main_commands()
         elif command == "1":
             self.change_name()
         elif command == "2":
@@ -74,3 +83,10 @@ class RecipeBook:
         else:
             print()
             self.printer.print_main_commands()
+    
+    def add_category(self):
+        type = input("Category: ")
+        self.recipe_service.add_category(type)
+
+    def print_categories(self):
+        self.recipe_service.print_categories()

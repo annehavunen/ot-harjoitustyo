@@ -47,4 +47,9 @@
   - Uusi luokka PrintCommands käskyjen tulostamiselle
   - Yleistä koodin parantelua
 
+### 17.4.2022
+- Työtunnit
+- Mitä tein
+  - Tietokantaan uusi taulu Category
+
 ### Työtunnit yhteensä: 26
