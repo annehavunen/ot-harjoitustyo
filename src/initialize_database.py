@@ -8,9 +8,12 @@ def drop_tables(connection):
         DROP TABLE IF EXISTS Recipe;
     ''')
 
-    #testausta
     cursor.execute('''
         DROP TABLE IF EXISTS Category;
+    ''')
+
+    cursor.execute('''
+        DROP TABLE IF EXISTS Recipe_category
     ''')
 
     connection.commit()
@@ -20,25 +23,25 @@ def create_tables(connection):
 
     cursor.execute('''
         CREATE TABLE Recipe (
+            id INTEGER PRIMARY KEY,
             name TEXT,
             url TEXT
         );
     ''')
 
-# Testaa ensin: kategoria ilman mitään muuta
     cursor.execute('''
         CREATE TABLE Category (
+            id INTEGER PRIMARY KEY,
             name TEXT
         );
     ''')
 
-    # cursor.execute('''
-    #     CREATE TABLE Recipe (
-    #         id INTEGER PRIMARY KEY,
-    #         name TEXT,
-    #         url TEXT
-    #     );
-    # ''')
+    cursor.execute('''
+        CREATE TABLE Recipe_category (
+            recipe_id INTEGER REFERENCES Recipe,
+            category_id INTEGER REFERENCES Category
+        );
+    ''')
 
     connection.commit()
 

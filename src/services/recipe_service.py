@@ -14,11 +14,36 @@ class RecipeService:
     def add_recipe(self, name, url):
         recipe = Recipe(name, url)
         added = self.repository.add_recipe(recipe)
-        if not added:
+        if added is False:
             print(f"Recipe with the name {name} exists already.")
         else:
-            print("Recipe added")
+            return added
+            #print("Recipe added")   # POISTA TÄMÄ, koska lisäystoiminto jatkuu, siirrä kategorian jälkeen
         print()
+    
+    def add_category(self, number):
+        if number == 1:
+            type = "meat and poultry"
+        elif number == 2:
+            type = "seafood"
+        elif number == 3:
+            type = "vegetarian"
+        elif number == 4:
+            type = "snacks and side dishes"
+        elif number == 5:
+            type = "desserts"
+        elif number == 6:
+            type = "baking"
+        elif number == 7:
+            type = "other"
+        
+        category = Category(type)
+        category_id = self.repository.add_category(category)
+        return category_id
+
+    def recipe_category(self, recipe_id, category_id):
+        self.repository.add_recipe_category(recipe_id, category_id)
+        # voiko kategorian myöhemmin poistaa category_id:n perusteella recipe_categoryn kautta?
 
     def print_recipes(self):
         recipes = self.repository.find_all()
@@ -70,13 +95,17 @@ class RecipeService:
             print(f"{name} removed")
         print()
     
-    def add_category(self, type):
-        category = Category(type)
-        self.repository.add_category(category)
-        print()
+    # def add_category(self, type):
+    #     category = Category(type)
+    #     self.repository.add_category(category)
+    #     print()
     
     def print_categories(self):
         categories = self.repository.find_all_categories()
         for category in categories:
             print(category) # tarvitaanko tulostustoiminto
         print()
+
+    def print_recipe_id(self, name):
+        id = self.repository.get_recipe_id(name)
+        print(id)

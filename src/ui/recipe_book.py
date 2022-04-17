@@ -1,4 +1,3 @@
-#from unicodedata import category
 from services.recipe_service import RecipeService
 from ui.print_commands import PrintCommands
 
@@ -10,7 +9,6 @@ class RecipeBook:
 
     def start(self):
         print("Welcome to Recipe Book, where you can collect your favorite recipes from websites.")
-        print("Categories will be added later.")
         print()
         print("Commands:")
         self.printer.print_main_commands()
@@ -35,6 +33,8 @@ class RecipeBook:
                 self.add_category()
             elif command == "7":
                 self.print_categories()
+            elif command == "8":
+                self.print_recipe_id()
             # testi päättyy
             else:
                 self.printer.print_main_commands()
@@ -42,9 +42,13 @@ class RecipeBook:
     def add_recipe(self):
         name = input("Name of the recipe: ")
         url = input("URL of the recipe: ")
-        # kategoriatesti
-        #type = input("Category of the recipe: ")
-        self.recipe_service.add_recipe(name, url)
+        recipe_id = self.recipe_service.add_recipe(name, url)
+        print("Write the numbers of the categories (at least one) without spaces.")
+        print("For example: 123")
+        self.printer.print_categories()
+        types = input("Categories of the recipe: ")
+        self.add_categories(recipe_id, types)
+        self.printer.print_main_commands()
 
     def print_recipes(self):
         self.recipe_service.print_recipes()
@@ -83,10 +87,22 @@ class RecipeBook:
         else:
             print()
             self.printer.print_main_commands()
+
+# testausfunktioita
+    def add_categories(self, recipe_id, types):
+        added = set()
+        for number in types:
+            if int(number) in range(1,8) and number not in added:
+                category_id = self.recipe_service.add_category(number)
+                added.add(number)
+                self.add_recipe_category(recipe_id, category_id)
     
-    def add_category(self):
-        type = input("Category: ")
-        self.recipe_service.add_category(type)
+    def add_recipe_category(self, recipe_id, category_id):
+        self.recipe_service
 
     def print_categories(self):
         self.recipe_service.print_categories()
+    
+    def print_recipe_id(self):
+        name = input("recipe name: ")
+        self.recipe_service.print_recipe_id(name)
