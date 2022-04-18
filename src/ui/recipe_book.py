@@ -9,8 +9,8 @@ class RecipeBook:
 
     def start(self):
         print("Welcome to Recipe Book, where you can collect your favorite recipes from websites.")
-        print()
         print("Commands:")
+        print(self.printer.categories())
         self.printer.print_main_commands()
         print()
 
@@ -30,10 +30,8 @@ class RecipeBook:
                 self.remove_recipe()
             # testi
             elif command == "6":
-                self.add_category()
+                self.print_by_category()
             elif command == "7":
-                self.print_categories()
-            elif command == "8":
                 self.print_recipe_id()
             # testi päättyy
             else:
@@ -43,13 +41,14 @@ class RecipeBook:
         name = input("Name of the recipe: ")
         url = input("URL of the recipe: ")
         recipe_id = self.recipe_service.add_recipe(name, url)
-        # jatkuu vain, jos ei ole lisätty vielä reseptiä:
-        print("Write the numbers of the categories (at least one) without spaces.") # onko pakko olla kategoriaa?
-        print("For example: 123")
-        self.printer.print_categories()
-        types = input("Categories of the recipe: ")
-        self.add_categories(recipe_id, types)
-        print("Recipe added")
+        if recipe_id is not False:
+            print("Write the numbers of the categories (at least one) without spaces.") # onko pakko olla kategoriaa?
+            print("For example: 123")
+            self.printer.print_categories()
+            types = input("Categories of the recipe: ")
+            self.recipe_service.add_categories(recipe_id, types)
+            #self.add_categories(recipe_id, types)
+            print("Recipe added")
         print()
         self.printer.print_main_commands()
 
@@ -91,20 +90,24 @@ class RecipeBook:
             print()
             self.printer.print_main_commands()
 
-    def add_categories(self, recipe_id, types):
-        added = set()
-        for number in types:
-            if type(number) is int and int(number) in range(1,8) and number not in added:
-                category_id = self.recipe_service.add_category(number)
-                added.add(number)
-                self.add_recipe_category(recipe_id, category_id)
-        # Tarvitseeko tarkistaa, että resepti kuuluu ainakin yhteen kategoriaan?
-    
-    def add_recipe_category(self, recipe_id, category_id):
-        self.recipe_service(recipe_id, category_id)
+    def print_by_category(self):
+        number = input("Which category's recipes do you want to print? Number: ")
+        self.recipe_service.print_by_category(number)
 
-    def print_categories(self):
-        self.recipe_service.print_categories()
+
+#pitäisikö siirtää toiminnallisuutta recipe_serviceen
+    # def add_categories(self, recipe_id, types):
+    #     added = set()
+    #     for char in types:
+    #         try:
+    #             number = int(char)
+    #             if number in range(1,8) and number not in added:
+    #                 category_id = self.recipe_service.add_category(number)
+    #                 self.recipe_service.add_recipe_category(recipe_id, category_id)
+    #                 added.add(number)
+    #         except ValueError:
+    #             pass
+        # Tarvitseeko tarkistaa, että resepti kuuluu ainakin yhteen kategoriaan?
     
     def print_recipe_id(self):
         name = input("recipe name: ")

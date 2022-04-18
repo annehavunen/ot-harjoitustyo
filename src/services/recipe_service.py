@@ -16,33 +16,43 @@ class RecipeService:
         added = self.repository.add_recipe(recipe)
         if added is False:
             print(f"Recipe with the name {name} exists already.")
-        else:
-            return added
-            #print("Recipe added")   # POISTA TÄMÄ, koska lisäystoiminto jatkuu, siirrä kategorian jälkeen
         print()
+        return added
     
+    def add_categories(self, recipe_id, types):
+        added = set()
+        for char in types:
+            try:
+                number = int(char)
+                if number in range(1, (self.printer.categories()+1)) and number not in added:
+                    category_id = self.add_category(number)
+                    self.repository.add_recipe_category(recipe_id, category_id)# add_recipe_category(recipe_id, category_id)
+                    added.add(number)
+            except ValueError:
+                pass
+
     def add_category(self, number):
-        type = ""
+        name = ""
         if number == 1:
-            type = "meat and poultry"
+            name = "meat and poultry"
         elif number == 2:
-            type = "seafood"
+            name = "seafood"
         elif number == 3:
-            type = "vegetarian"
+            name = "vegetarian"
         elif number == 4:
-            type = "snacks and side dishes"
+            name = "snacks and side dishes"
         elif number == 5:
-            type = "desserts"
+            name = "desserts"
         elif number == 6:
-            type = "baking"
+            name = "baking"
         elif number == 7:
-            type = "other"
+            name = "other"
         
-        category = Category(type)
+        category = Category(name)
         category_id = self.repository.add_category(category)
         return category_id
 
-    def recipe_category(self, recipe_id, category_id):
+    def add_recipe_category(self, recipe_id, category_id):
         self.repository.add_recipe_category(recipe_id, category_id)
         # voiko kategorian myöhemmin poistaa category_id:n perusteella recipe_categoryn kautta?
 
@@ -88,6 +98,33 @@ class RecipeService:
             print()
             self.printer.print_main_commands()
 
+    def print_by_category(self, input):
+        try: 
+            number = int(input)
+            if number in range(1, self.printer.categories()+1):
+                name = ""
+                if number == 1:
+                    name = "meat and poultry"
+                elif number == 2:
+                    name = "seafood"
+                elif number == 3:
+                    name = "vegetarian"
+                elif number == 4:
+                    name = "snacks and side dishes"
+                elif number == 5:
+                    name = "desserts"
+                elif number == 6:
+                    name = "baking"
+                else:
+                    name = "other"
+                recipes = self.repository.find_by_category(name)
+                for recipe in recipes:
+                    print(recipe)
+            else:
+                print("Category doesn't exist")
+        except ValueError:
+            print("Category doesn't exist")
+
     def remove_recipe(self, name):
         removed = self.repository.remove_recipe(name)
         if removed is None:
@@ -95,7 +132,7 @@ class RecipeService:
         else:
             print(f"{name} removed")
         print()
-    
+
     # def add_category(self, type):
     #     category = Category(type)
     #     self.repository.add_category(category)
@@ -104,7 +141,7 @@ class RecipeService:
     def print_categories(self):
         categories = self.repository.find_all_categories()
         for category in categories:
-            print(category) # tarvitaanko tulostustoiminto
+            print(category)
         print()
 
     def print_recipe_id(self, name):

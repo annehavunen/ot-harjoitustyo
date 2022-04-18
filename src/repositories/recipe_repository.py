@@ -1,6 +1,5 @@
 from database_connection import get_database_connection
 from entities.recipe import Recipe
-# tuleeko oma repositorio tms.?:
 from entities.category import Category
 
 
@@ -43,7 +42,6 @@ class RecipeRepository:
             [name]).fetchone()
         return recipe
 
-    # tuleeko oma repositorio tms.?:
     def add_category(self, category):
         cursor = self._connection.cursor()
         added = cursor.execute(
@@ -52,17 +50,21 @@ class RecipeRepository:
         return added.lastrowid
     
     def add_recipe_category(self, recipe_id, category_id):
-        print(recipe_id, category_id)
         cursor = self._connection.cursor()
+        cursor.execute(
+            "INSERT INTO Recipe_category VALUES (?, ?)",
+            (recipe_id, category_id))
+
+    def find_by_category(self, name):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "SELECT R.name, R.url FROM Recipe R, Category C, Recipe_category RC WHERE C.name = (?) AND R.id = RC.recipe_id AND C.id = RC.category_id",
+            [name])
+        rows = cursor.fetchall()
+        return [Recipe(row["name"], row["url"]) for row in rows]
 
 
 # testejä
-    def get_recipe_id(self, name):
-        cursor = self._connection.cursor()
-        cursor.execute('SELECT * FROM Recipe WHERE name = (?)', [name])
-        recipe = cursor.fetchone()
-        return recipe
-    
     def find_all_categories(self):
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Category")

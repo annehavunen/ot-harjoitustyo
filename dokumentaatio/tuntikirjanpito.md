@@ -53,4 +53,9 @@
   - Tietokantaan lisätty taulut Category ja Recipe_category
   - Tietokantataulujen yhteistyön työstämistä
 
+### 18.4.2022
+- Työtunnit
+- Mitä tein
+  - Reseptiin voi lisätä kategorian ja etsiä reseptejä kategorian perusteella
+
 ### Työtunnit yhteensä: 32

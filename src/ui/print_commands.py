@@ -5,9 +5,8 @@ main_commands = {
     "3": "3 open a recipe",
     "4": "4 change a recipe",
     "5": "5 remove a recipe",
-    "6": "6 category test", # testausta...
-    "7": "7 print category test",
-    "8": "8 print recipe_id test"
+    "6": "6 print by category",
+    "7": "7 print recipe_id test" # testi
 }
 
 change_commands = {
@@ -38,3 +37,6 @@ class PrintCommands:
     def print_categories(self):
         for command in categories.values():
             print(command)
+    
+    def categories(self):
+        return len(categories)
