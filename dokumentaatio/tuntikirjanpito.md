@@ -58,4 +58,12 @@
 - Mitä tein
   - Reseptiin voi lisätä kategorian ja etsiä reseptejä kategorian perusteella
 
-### Työtunnit yhteensä: 32
+### 19.4.2022
+- Työtunnit 5
+- Mitä tein
+  - Reseptin nimen ja url:n muuttaminen toimii taas
+  - Reseptin poistaminen poistaa myös vastaavat rivit tauluista Category ja Recipe_category
+  - Tulostuksia ym. siirretty Recipe_servicestä käyttöliittymään
+  - Turhia funktioita poistettu, yleistä koodin siistimistä
+
+### Työtunnit yhteensä: 37

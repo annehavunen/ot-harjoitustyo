@@ -9,12 +9,12 @@ class RecipeRepository:
 
     def add_recipe(self, recipe):
         cursor = self._connection.cursor()
-        same_name = self.find_recipe(recipe.name)
-        if not same_name:
-            added = cursor.execute(
+        recipe_id = self.get_recipe_id(recipe.name)
+        if not recipe_id:
+            cursor.execute(
                 "INSERT INTO Recipe (name, url) VALUES (?, ?)",
                 (recipe.name, recipe.url))
-            return added.lastrowid
+            return True
         return False
 
     def get_url(self, name):
@@ -28,13 +28,6 @@ class RecipeRepository:
         cursor.execute("SELECT * FROM Recipe")
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
-
-    def find_recipe(self, name):    # poista myöhemmin?
-        cursor = self._connection.cursor()
-        recipe = cursor.execute(
-            "SELECT * FROM Recipe WHERE name = (?)",
-            [name]).fetchone()
-        return recipe
 
     def add_category(self, category):
         cursor = self._connection.cursor()
@@ -95,5 +88,15 @@ class RecipeRepository:
         cursor.execute(
             "DELETE FROM Recipe_category WHERE recipe_id = (?) and category_id = (?)",
             (recipe_id, category_id))
+
+    def change_url(self, new_url, recipe_id):
+        cursor = self._connection.cursor()
+        cursor.execute("UPDATE Recipe SET url = (?) WHERE id = (?)", (new_url, recipe_id))
+
+    def change_name(self, new_name, recipe_id):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "UPDATE Recipe SET name = (?) WHERE id = (?)", (new_name, recipe_id))
+
 
 recipe_repository = RecipeRepository(get_database_connection())

@@ -27,10 +27,6 @@ class RecipeBook:
                 self.change_recipe()
             elif command == "5":
                 self.remove_recipe()
-            elif command == "6":    # testejä:
-                self.get_recipe_id()
-            elif command == "7":
-                self.get_category_ids()
             else:
                 self.printer.print_main_commands()
 
@@ -39,57 +35,71 @@ class RecipeBook:
         if name != "":
             url = input("URL of the recipe: ")
             recipe_id = self.recipe_service.add_recipe(name, url)
-            if recipe_id is not False:
-                print("Write the numbers of the categories (at least one) without spaces.") # onko pakko olla kategoriaa?
+            if recipe_id:
+                print("Write the numbers of the categories without spaces.")
                 print("For example: 123")
                 self.printer.print_categories()
                 types = input("Categories of the recipe: ")
                 self.recipe_service.add_categories(recipe_id, types)
                 print("Recipe added")
+            else:
+                print(f"Recipe with the name {name} exists already.")
         print()
         self.printer.print_main_commands()
 
     def open_website(self):
         name = input("Name of the recipe you want to open (return with 'enter'): ")
         if name != "":
-            self.recipe_service.open_recipe(name)
+            exist = self.recipe_service.open_recipe(name)
+            if not exist:
+                print(f"There is no recipe called {name}")
+        print()
+        self.printer.print_main_commands()
 
-    def change_url(self):
-        name = input("Which recipe's url do you want to change (return with 'enter')? ")
-        if name != "":
-            print("r return")
-            url = input("New url: ")
-            if url != "r":
-                self.recipe_service.change_url(name, url)
+    def change_recipe(self):
+        print()
+        print("Commands:")
+        self.printer.print_change_commands()
+        command = input("Command: ")
+        if command == "1":
+            self.change_name()
+        elif command == "2":
+            self.change_url()
+        print()
+        self.printer.print_main_commands()
     
     def change_name(self):
         name = input("Which recipe's name do you want to change (return with 'enter')? ")
         if name != "":
             new_name = input("New name (return with 'enter'): ")
             if new_name != "":
-                self.recipe_service.change_name(name, new_name)
+                changed = self.recipe_service.change_name(name, new_name)
+                if not changed:
+                    print(f"There is no recipe called {name}")
+                else:
+                    print("Name changed")
+
+    def change_url(self):
+        name = input("Which recipe's url do you want to change (return with 'enter')? ")
+        if name != "":
+            url = input("New url (press 'r' to return): ")
+            if url != "r":
+                changed = self.recipe_service.change_url(name, url)
+                if not changed:
+                    print(f"There is no recipe called {name}")
+                else:
+                    print("Url changed")
 
     def remove_recipe(self):
         name = input("Name of the recipe (return with 'enter'): ")
         if name != "":
-            self.recipe_service.remove_recipe(name)
-
-    def change_recipe(self): # tarvitseeko recipe_id olla tallennettuna?
+            removed = self.recipe_service.remove_recipe(name)
+            if not removed:
+                print(f"There is no recipe called {name}")
+            else:
+                print(f"{name} removed")
         print()
-        print("Commands:")
-        self.printer.print_change_commands()
-        command = input("Command: ")
-
-        if command == "r":
-            print()
-            self.printer.print_main_commands()
-        elif command == "1":
-            self.change_name()
-        elif command == "2":
-            self.change_url()
-        else:
-            print()
-            self.printer.print_main_commands()
+        self.printer.print_main_commands()
 
     def print_recipes(self):
         self.printer.print_printing_options()
@@ -102,18 +112,9 @@ class RecipeBook:
         self.printer.print_main_commands()        
 
     def print_by_category(self):
-        print("Which category's recipes do you want to print? Number: ")
+        print("Which category's recipes do you want to print?")
         self.printer.print_categories()
         number = input("Number: ")
-        self.recipe_service.print_by_category(number)
-
-
-    # testejä
-    def get_recipe_id(self):
-        name = input("Recipe name: ")
-        print(self.recipe_service.get_recipe_id(name))
-    
-    def get_category_ids(self):
-        id = input("id: ")
-        self.recipe_service.get_category_ids(id)
-
+        printed = self.recipe_service.print_by_category(number)
+        if not printed:
+            print("Category doesn't exist")
