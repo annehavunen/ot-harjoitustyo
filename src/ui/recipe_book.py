@@ -10,7 +10,6 @@ class RecipeBook:
     def start(self):
         print("Welcome to Recipe Book, where you can collect your favorite recipes from websites.")
         print("Commands:")
-        print(self.printer.categories())
         self.printer.print_main_commands()
         print()
 
@@ -28,52 +27,54 @@ class RecipeBook:
                 self.change_recipe()
             elif command == "5":
                 self.remove_recipe()
-            # testi
-            elif command == "6":
-                self.print_by_category()
+            elif command == "6":    # testejä:
+                self.get_recipe_id()
             elif command == "7":
-                self.print_recipe_id()
-            # testi päättyy
+                self.get_category_ids()
             else:
                 self.printer.print_main_commands()
 
     def add_recipe(self):
-        name = input("Name of the recipe: ")
-        url = input("URL of the recipe: ")
-        recipe_id = self.recipe_service.add_recipe(name, url)
-        if recipe_id is not False:
-            print("Write the numbers of the categories (at least one) without spaces.") # onko pakko olla kategoriaa?
-            print("For example: 123")
-            self.printer.print_categories()
-            types = input("Categories of the recipe: ")
-            self.recipe_service.add_categories(recipe_id, types)
-            #self.add_categories(recipe_id, types)
-            print("Recipe added")
+        name = input("Name of the recipe (return with 'enter'): ")
+        if name != "":
+            url = input("URL of the recipe: ")
+            recipe_id = self.recipe_service.add_recipe(name, url)
+            if recipe_id is not False:
+                print("Write the numbers of the categories (at least one) without spaces.") # onko pakko olla kategoriaa?
+                print("For example: 123")
+                self.printer.print_categories()
+                types = input("Categories of the recipe: ")
+                self.recipe_service.add_categories(recipe_id, types)
+                print("Recipe added")
         print()
         self.printer.print_main_commands()
 
-    def print_recipes(self):
-        self.recipe_service.print_recipes()
-
     def open_website(self):
-        name = input("Name of the recipe you want to open: ")
-        self.recipe_service.open_recipe(name)
+        name = input("Name of the recipe you want to open (return with 'enter'): ")
+        if name != "":
+            self.recipe_service.open_recipe(name)
 
     def change_url(self):
-        name = input("Which recipe's url do you want to change? ")
-        url = input("New url: ")
-        self.recipe_service.change_url(name, url)
+        name = input("Which recipe's url do you want to change (return with 'enter')? ")
+        if name != "":
+            print("r return")
+            url = input("New url: ")
+            if url != "r":
+                self.recipe_service.change_url(name, url)
     
     def change_name(self):
-        name = input("Which recipe's name do you want to change? ")
-        new_name = input("New name: ")
-        self.recipe_service.change_name(name, new_name)
+        name = input("Which recipe's name do you want to change (return with 'enter')? ")
+        if name != "":
+            new_name = input("New name (return with 'enter'): ")
+            if new_name != "":
+                self.recipe_service.change_name(name, new_name)
 
     def remove_recipe(self):
-        name = input("Name of the recipe: ")
-        self.recipe_service.remove_recipe(name)
+        name = input("Name of the recipe (return with 'enter'): ")
+        if name != "":
+            self.recipe_service.remove_recipe(name)
 
-    def change_recipe(self):
+    def change_recipe(self): # tarvitseeko recipe_id olla tallennettuna?
         print()
         print("Commands:")
         self.printer.print_change_commands()
@@ -90,25 +91,29 @@ class RecipeBook:
             print()
             self.printer.print_main_commands()
 
+    def print_recipes(self):
+        self.printer.print_printing_options()
+        command = input("Command: ")
+        if command == "1":
+            self.recipe_service.print_all()
+        elif command == "2":
+            self.print_by_category()
+        print()
+        self.printer.print_main_commands()        
+
     def print_by_category(self):
-        number = input("Which category's recipes do you want to print? Number: ")
+        print("Which category's recipes do you want to print? Number: ")
+        self.printer.print_categories()
+        number = input("Number: ")
         self.recipe_service.print_by_category(number)
 
 
-#pitäisikö siirtää toiminnallisuutta recipe_serviceen
-    # def add_categories(self, recipe_id, types):
-    #     added = set()
-    #     for char in types:
-    #         try:
-    #             number = int(char)
-    #             if number in range(1,8) and number not in added:
-    #                 category_id = self.recipe_service.add_category(number)
-    #                 self.recipe_service.add_recipe_category(recipe_id, category_id)
-    #                 added.add(number)
-    #         except ValueError:
-    #             pass
-        # Tarvitseeko tarkistaa, että resepti kuuluu ainakin yhteen kategoriaan?
+    # testejä
+    def get_recipe_id(self):
+        name = input("Recipe name: ")
+        print(self.recipe_service.get_recipe_id(name))
     
-    def print_recipe_id(self):
-        name = input("recipe name: ")
-        self.recipe_service.print_recipe_id(name)
+    def get_category_ids(self):
+        id = input("id: ")
+        self.recipe_service.get_category_ids(id)
+

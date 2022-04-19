@@ -54,7 +54,7 @@
   - Tietokantataulujen yhteistyön työstämistä
 
 ### 18.4.2022
-- Työtunnit
+- Työtunnit 5
 - Mitä tein
   - Reseptiin voi lisätä kategorian ja etsiä reseptejä kategorian perusteella
 

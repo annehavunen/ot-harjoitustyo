@@ -17,12 +17,6 @@ class RecipeRepository:
             return added.lastrowid
         return False
 
-    def remove_recipe(self, name):
-        cursor = self._connection.cursor()
-        removed = cursor.execute("SELECT name FROM Recipe WHERE name = (?)", [name]).fetchone()
-        cursor.execute("DELETE FROM Recipe WHERE name = (?)", [name])
-        return removed
-
     def get_url(self, name):
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Recipe WHERE name = (?)", [name])
@@ -35,7 +29,7 @@ class RecipeRepository:
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
 
-    def find_recipe(self, name):
+    def find_recipe(self, name):    # poista myöhemmin?
         cursor = self._connection.cursor()
         recipe = cursor.execute(
             "SELECT * FROM Recipe WHERE name = (?)",
@@ -62,14 +56,44 @@ class RecipeRepository:
             [name])
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
-
-
-# testejä
-    def find_all_categories(self):
+    
+    def get_recipe_id(self, name):
         cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM Category")
+        recipe = cursor.execute(
+            "SELECT id FROM Recipe WHERE name = (?)",
+            [name]).fetchone()
+        try:
+            return recipe[0]
+        except:
+            return None
+    
+    def get_category_ids(self, recipe_id):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "SELECT category_id FROM Recipe_category WHERE recipe_id = (?)",
+            [recipe_id]
+        )
         rows = cursor.fetchall()
-        return [Category(row["name"]) for row in rows]
+        if rows:
+            return [row[0] for row in rows]
+        else:
+            return None
 
+    def remove_recipe(self, name):
+        cursor = self._connection.cursor()
+        recipe = cursor.execute("SELECT * FROM Recipe WHERE name = (?)", [name]).fetchone()
+        recipe_id = recipe[0]
+        cursor.execute("DELETE FROM Recipe WHERE name = (?)", [name])
+        return recipe_id
+
+    def remove_category(self, category_id):
+        cursor = self._connection.cursor()
+        cursor.execute("DELETE FROM Category WHERE id = (?)", [category_id])
+
+    def remove_recipe_category(self, recipe_id, category_id):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "DELETE FROM Recipe_category WHERE recipe_id = (?) and category_id = (?)",
+            (recipe_id, category_id))
 
 recipe_repository = RecipeRepository(get_database_connection())

@@ -16,6 +16,8 @@ class RecipeService:
         added = self.repository.add_recipe(recipe)
         if added is False:
             print(f"Recipe with the name {name} exists already.")
+        else:
+            recipe.add_id(added)
         print()
         return added
     
@@ -26,7 +28,7 @@ class RecipeService:
                 number = int(char)
                 if number in range(1, (self.printer.categories()+1)) and number not in added:
                     category_id = self.add_category(number)
-                    self.repository.add_recipe_category(recipe_id, category_id)# add_recipe_category(recipe_id, category_id)
+                    self.repository.add_recipe_category(recipe_id, category_id)
                     added.add(number)
             except ValueError:
                 pass
@@ -50,37 +52,51 @@ class RecipeService:
         
         category = Category(name)
         category_id = self.repository.add_category(category)
+        category.add_id(category_id)
         return category_id
 
     def add_recipe_category(self, recipe_id, category_id):
         self.repository.add_recipe_category(recipe_id, category_id)
-        # voiko kategorian myöhemmin poistaa category_id:n perusteella recipe_categoryn kautta?
 
     def print_recipes(self):
-        recipes = self.repository.find_all()
-        for recipe in recipes:
-            print(recipe)
+        self.printer.print_printing_options()
+        command = input("Command: ")
+        if command == "1":
+            recipes = self.repository.find_all()
+            for recipe in recipes:
+                print(recipe)
+            print()
+        elif command == "2":
+            self.print_by_category()
+        else:
+            pass
         print()
+        self.printer.print_main_commands()
 
     def open_recipe(self, name):
         exists = self.repository.find_recipe(name)
         if exists is None:
             print(f"There is no recipe called {name}")
         else:
-            url = self.repository.get_url(name)
+            url = self.repository.get_url(name) # mitä jos on tyhjä?
             webbrowser.open(url)
         print()
 
     def change_url(self, name, url):
-        recipe = self.repository.find_recipe(name)
-        if recipe is None:
-            print(f"There is no recipe called {name}")
-            print()
-            self.printer.print_main_commands()
-        else:
+        recipe_id = self.repository.get_recipe_id(name)
+        if recipe_id:
+            # poista resepti, lisää uudella osoitteella
+            # kategorioihin ei kosketa, reseptikategoriat poistetaan ja muutetaan
+            category_ids = self.get_category_ids(recipe_id)
+            if category_ids:
+                pass
             self.repository.remove_recipe(name)
             self.repository.add_recipe(Recipe(name, url))
             print("Url changed")
+            print()
+            self.printer.print_main_commands()
+        else:
+            print(f"There is no recipe called {name}")
             print()
             self.printer.print_main_commands()
 
@@ -98,7 +114,12 @@ class RecipeService:
             print()
             self.printer.print_main_commands()
 
-    def print_by_category(self, input):
+    def print_all(self):
+        recipes = self.repository.find_all()
+        for recipe in recipes:
+            print(recipe)
+
+    def print_by_category(self, input): # monta kategoriaa?
         try: 
             number = int(input)
             if number in range(1, self.printer.categories()+1):
@@ -122,28 +143,38 @@ class RecipeService:
                     print(recipe)
             else:
                 print("Category doesn't exist")
+                print()
+                self.printer.print_main_commands()
         except ValueError:
             print("Category doesn't exist")
+            print()
+            self.printer.print_main_commands()
 
     def remove_recipe(self, name):
-        removed = self.repository.remove_recipe(name)
-        if removed is None:
-            print(f"There is no recipe called {name}")
-        else:
+        recipe_id = self.repository.get_recipe_id(name)
+        if recipe_id:
+            self.repository.remove_recipe(name)
+            category_ids = self.get_category_ids(recipe_id)
+            if category_ids:
+                for category_id in category_ids:
+                    self.remove_category(category_id)
+                    self.remove_recipe_category(recipe_id, category_id)
             print(f"{name} removed")
+        else:
+            print(f"There is no recipe called {name}")
         print()
-
-    # def add_category(self, type):
-    #     category = Category(type)
-    #     self.repository.add_category(category)
-    #     print()
+        self.printer.print_main_commands()
     
-    def print_categories(self):
-        categories = self.repository.find_all_categories()
-        for category in categories:
-            print(category)
-        print()
+    def remove_category(self, category_id):
+        self.repository.remove_category(category_id)
+    
+    def remove_recipe_category(self, recipe_id, category_id):
+        self.repository.remove_recipe_category(recipe_id, category_id)
 
-    def print_recipe_id(self, name):
+    def get_recipe_id(self, name):
         id = self.repository.get_recipe_id(name)
-        print(id)
+        return id
+    
+    def get_category_ids(self, recipe_id):
+        category_ids = self.repository.get_category_ids(recipe_id)
+        return category_ids
