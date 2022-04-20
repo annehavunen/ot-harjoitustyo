@@ -61,10 +61,10 @@ class RecipeService:
         webbrowser.open(url)
         return True
 
-    def change_url(self, name, url):
+    def change_url(self, name, new_url):
         recipe_id = self.repository.get_recipe_id(name)
         if recipe_id:
-            self.repository.change_url(url, recipe_id)
+            self.repository.change_url(new_url, recipe_id)
             return True
         return False
 
@@ -133,3 +133,15 @@ class RecipeService:
     def get_category_ids(self, recipe_id):
         category_ids = self.repository.get_category_ids(recipe_id)
         return category_ids
+
+    def get_categories(self):
+        return self.repository.get_categories()
+
+    def get_recipe_categories(self):
+        return self.repository.get_recipe_categories()
+    
+    def get_url(self, name):
+        return self.repository.get_url(name)
+
+    def get_recipe_name(self, recipe_id):
+        return self.repository.get_recipe_name(recipe_id)

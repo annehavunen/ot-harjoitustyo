@@ -66,4 +66,10 @@
   - Tulostuksia ym. siirretty Recipe_servicestä käyttöliittymään
   - Turhia funktioita poistettu, yleistä koodin siistimistä
 
-### Työtunnit yhteensä: 37
+### 20.4.2022
+- Työtunnit 4
+- Mitä tein
+  - Luokkien Recipe_service ja Recipe_repository testien tekemistä
+  - Sekvenssikaavio reseptin lisäämiselle
+
+### Työtunnit yhteensä: 41

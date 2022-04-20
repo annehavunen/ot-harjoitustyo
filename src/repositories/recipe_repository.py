@@ -17,12 +17,6 @@ class RecipeRepository:
             return True
         return False
 
-    def get_url(self, name):
-        cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM Recipe WHERE name = (?)", [name])
-        recipe = cursor.fetchone()
-        return Recipe(recipe["name"], recipe["url"]).url
-
     def find_all(self):
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Recipe")
@@ -49,7 +43,13 @@ class RecipeRepository:
             [name])
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
-    
+
+    def get_url(self, name):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Recipe WHERE name = (?)", [name])
+        recipe = cursor.fetchone()
+        return recipe[2] #Recipe(recipe["name"], recipe["url"]).url
+
     def get_recipe_id(self, name):
         cursor = self._connection.cursor()
         recipe = cursor.execute(
@@ -98,5 +98,21 @@ class RecipeRepository:
         cursor.execute(
             "UPDATE Recipe SET name = (?) WHERE id = (?)", (new_name, recipe_id))
 
+    def get_categories(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Category")
+        rows = cursor.fetchall()
+        return [(row[0], row[1]) for row in rows]
+
+    def get_recipe_categories(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Recipe_category")
+        rows = cursor.fetchall()
+        return [(row[0], row[1]) for row in rows]
+
+    def get_recipe_name(self, recipe_id):
+        cursor = self._connection.cursor()
+        recipe = cursor.execute("SELECT name FROM Recipe WHERE id = (?)", [recipe_id]).fetchone()
+        return recipe[0]
 
 recipe_repository = RecipeRepository(get_database_connection())
