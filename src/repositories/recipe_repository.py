@@ -9,13 +9,17 @@ class RecipeRepository:
 
     def add_recipe(self, recipe):
         cursor = self._connection.cursor()
-        recipe_id = self.get_recipe_id(recipe.name)
-        if not recipe_id:
-            cursor.execute(
-                "INSERT INTO Recipe (name, url) VALUES (?, ?)",
-                (recipe.name, recipe.url))
-            return True
-        return False
+#        recipe_id = self.get_recipe_id(recipe.name)
+        added = cursor.execute(
+            "INSERT INTO Recipe (name, url) VALUES (?, ?)",
+            (recipe.name, recipe.url))
+        return added.lastrowid
+        # if not recipe_id:
+        #     cursor.execute(
+        #         "INSERT INTO Recipe (name, url) VALUES (?, ?)",
+        #         (recipe.name, recipe.url))
+        #     return True
+        # return False
 
     def find_all(self):
         cursor = self._connection.cursor()

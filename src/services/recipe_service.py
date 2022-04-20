@@ -12,11 +12,16 @@ class RecipeService:
         self.printer = PrintCommands()
 
     def add_recipe(self, name, url):
-        recipe = Recipe(name, url)
-        added = self.repository.add_recipe(recipe)
-        if added is False:
-            return False
-        return True
+        recipe_id = self.repository.get_recipe_id(name)
+        if not recipe_id:
+            recipe = Recipe(name, url)
+            recipe_id = self.repository.add_recipe(recipe)
+            return recipe_id
+        return False
+        # added = self.repository.add_recipe(recipe)
+        # if added is False:
+        #     return False
+        # return True
     
     def add_categories(self, recipe_id, types):
         added = set()

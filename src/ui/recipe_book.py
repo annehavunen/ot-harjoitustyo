@@ -13,13 +13,6 @@ class RecipeBook:
         self.printer.print_main_commands()
         print()
 
-        #testi
-        category_id = self.recipe_service.add_category(1)
-        print("ennen poistoa",self.recipe_service.get_categories())
-        self.recipe_service.remove_category(category_id)
-        print("poiston jälkeen",self.recipe_service.get_categories())
-        #testi päättyy
-
         while True:
             command = input("Command: ")
             if command == "x":
