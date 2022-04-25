@@ -20,3 +20,11 @@
 - Testattu, että Recipe tallentaa osoitteen oikein
 - Ohjelmakoodi jaettu kansioihin
 - Lisätty luokka PrintCommands
+
+## Viikko 5
+
+- Käyttäjä voi lisätä reseptiin kategorioita
+- Käyttäjä voi tulostaa reseptit kategorian perusteella
+- Nostettu testikattavuutta
+- Vuorovaikutus käyttäjän kanssa on siirretty kokonaan käyttöliittymään RecipeBook
+- Luotu reseptin lisäämistä kuvaava sekvenssikaavio
