@@ -79,4 +79,4 @@
   - GitHub-releasen tekeminen
   - Dokumenttien päivittäminen
 
-### Työtunnit yhteensä: 44
+### Työtunnit yhteensä: 49
