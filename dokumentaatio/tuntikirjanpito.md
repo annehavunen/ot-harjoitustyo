@@ -30,7 +30,7 @@
 ### 10.4.2022
 - Työtunnit: 3
 - Mitä tein
-  - reseptien nimien ja verkko-osoitteiden tallentaminen SQLite-tietokantaan
+  - Reseptien nimien ja verkko-osoitteiden tallentaminen SQLite-tietokantaan
 
 ### 11.4.2022
 - Työtunnit: 4
@@ -61,7 +61,7 @@
 ### 19.4.2022
 - Työtunnit 5
 - Mitä tein
-  - Reseptin nimen ja url:n muuttaminen toimii taas
+  - Reseptin nimen ja URL:n muuttaminen toimii taas
   - Reseptin poistaminen poistaa myös vastaavat rivit tauluista Category ja Recipe_category
   - Tulostuksia ym. siirretty Recipe_servicestä käyttöliittymään
   - Turhia funktioita poistettu, yleistä koodin siistimistä
