@@ -114,7 +114,29 @@ class RecipeBook:
     def print_by_category(self):
         print("Which category's recipes do you want to print?")
         self.printer.print_categories()
-        number = input("Number: ")
-        printed = self.recipe_service.print_by_category(number)
-        if not printed:
+        category = input("Number: ")
+        try:
+            number = int(category)
+            if number in range(1, self.printer.categories()+1):
+                name = ""
+                if number == 1:
+                    name = "meat and poultry"
+                elif number == 2:
+                    name = "seafood"
+                elif number == 3:
+                    name = "vegetarian"
+                elif number == 4:
+                    name = "snacks and side dishes"
+                elif number == 5:
+                    name = "desserts"
+                elif number == 6:
+                    name = "baking"
+                else:
+                    name = "other"
+                self.recipe_service.print_by_category(name)
+        except ValueError:
             print("Category doesn't exist")
+
+        # printed = self.recipe_service.print_by_category(number)
+        # if not printed:
+        #     print("Category doesn't exist")

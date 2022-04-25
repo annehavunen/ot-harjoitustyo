@@ -1,6 +1,5 @@
 from database_connection import get_database_connection
 from entities.recipe import Recipe
-from entities.category import Category
 
 
 class RecipeRepository:
@@ -9,17 +8,10 @@ class RecipeRepository:
 
     def add_recipe(self, recipe):
         cursor = self._connection.cursor()
-#        recipe_id = self.get_recipe_id(recipe.name)
         added = cursor.execute(
             "INSERT INTO Recipe (name, url) VALUES (?, ?)",
             (recipe.name, recipe.url))
         return added.lastrowid
-        # if not recipe_id:
-        #     cursor.execute(
-        #         "INSERT INTO Recipe (name, url) VALUES (?, ?)",
-        #         (recipe.name, recipe.url))
-        #     return True
-        # return False
 
     def find_all(self):
         cursor = self._connection.cursor()
@@ -33,7 +25,7 @@ class RecipeRepository:
             "INSERT INTO Category (name) VALUES (?)",
             [category.name])
         return added.lastrowid
-    
+
     def add_recipe_category(self, recipe_id, category_id):
         cursor = self._connection.cursor()
         cursor.execute(
@@ -42,8 +34,9 @@ class RecipeRepository:
 
     def find_by_category(self, name):
         cursor = self._connection.cursor()
-        cursor.execute(
-            "SELECT R.name, R.url FROM Recipe R, Category C, Recipe_category RC WHERE C.name = (?) AND R.id = RC.recipe_id AND C.id = RC.category_id",
+        cursor.execute("""
+            SELECT R.name, R.url FROM Recipe R, Category C, Recipe_category RC
+            WHERE C.name = (?) AND R.id = RC.recipe_id AND C.id = RC.category_id""",
             [name])
         rows = cursor.fetchall()
         return [Recipe(row["name"], row["url"]) for row in rows]
@@ -52,18 +45,17 @@ class RecipeRepository:
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Recipe WHERE name = (?)", [name])
         recipe = cursor.fetchone()
-        return recipe[2] #Recipe(recipe["name"], recipe["url"]).url
+        return recipe[2]
 
     def get_recipe_id(self, name):
         cursor = self._connection.cursor()
         recipe = cursor.execute(
             "SELECT id FROM Recipe WHERE name = (?)",
             [name]).fetchone()
-        try:
+        if recipe:
             return recipe[0]
-        except:
-            return None
-    
+        return None
+
     def get_category_ids(self, recipe_id):
         cursor = self._connection.cursor()
         cursor.execute(
@@ -73,8 +65,7 @@ class RecipeRepository:
         rows = cursor.fetchall()
         if rows:
             return [row[0] for row in rows]
-        else:
-            return None
+        return None
 
     def remove_recipe(self, name):
         cursor = self._connection.cursor()

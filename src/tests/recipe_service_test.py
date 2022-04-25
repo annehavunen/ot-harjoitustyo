@@ -2,7 +2,6 @@ import unittest
 from services.recipe_service import RecipeService
 from repositories.recipe_repository import recipe_repository
 from entities.recipe import Recipe
-from entities.category import Category  # pois?
 import initialize_database
 
 

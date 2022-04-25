@@ -1,9 +1,9 @@
 import webbrowser
 from repositories.recipe_repository import RecipeRepository
 from entities.recipe import Recipe
+from entities.category import Category
 from database_connection import get_database_connection
 from ui.print_commands import PrintCommands
-from entities.category import Category
 
 
 class RecipeService:
@@ -18,11 +18,7 @@ class RecipeService:
             recipe_id = self.repository.add_recipe(recipe)
             return recipe_id
         return False
-        # added = self.repository.add_recipe(recipe)
-        # if added is False:
-        #     return False
-        # return True
-    
+
     def add_categories(self, recipe_id, types):
         added = set()
         for char in types:
@@ -85,33 +81,36 @@ class RecipeService:
         for recipe in recipes:
             print(recipe)
 
-    def print_by_category(self, input): # monta kategoriaa?
-        try: 
-            number = int(input)
-            if number in range(1, self.printer.categories()+1):
-                name = ""
-                if number == 1:
-                    name = "meat and poultry"
-                elif number == 2:
-                    name = "seafood"
-                elif number == 3:
-                    name = "vegetarian"
-                elif number == 4:
-                    name = "snacks and side dishes"
-                elif number == 5:
-                    name = "desserts"
-                elif number == 6:
-                    name = "baking"
-                else:
-                    name = "other"
-                recipes = self.repository.find_by_category(name)
-                for recipe in recipes:
-                    print(recipe)
-                return True
-            else:
-                return False
-        except ValueError:
-            return False
+    def print_by_category(self, name):
+        recipes = self.repository.find_by_category(name)
+        for recipe in recipes:
+            print(recipe)
+
+        # try:
+        #     number = int(input)
+        #     if number in range(1, self.printer.categories()+1):
+        #         name = ""
+        #         if number == 1:
+        #             name = "meat and poultry"
+        #         elif number == 2:
+        #             name = "seafood"
+        #         elif number == 3:
+        #             name = "vegetarian"
+        #         elif number == 4:
+        #             name = "snacks and side dishes"
+        #         elif number == 5:
+        #             name = "desserts"
+        #         elif number == 6:
+        #             name = "baking"
+        #         else:
+        #             name = "other"
+        #         recipes = self.repository.find_by_category(name)
+        #         for recipe in recipes:
+        #             print(recipe)
+        #         return True
+        #     return False
+        # except ValueError:
+        #     return False
 
     def remove_recipe(self, name):
         recipe_id = self.repository.get_recipe_id(name)
@@ -124,17 +123,17 @@ class RecipeService:
                     self.remove_recipe_category(recipe_id, category_id)
             return True
         return False
-    
+
     def remove_category(self, category_id):
         self.repository.remove_category(category_id)
-    
+
     def remove_recipe_category(self, recipe_id, category_id):
         self.repository.remove_recipe_category(recipe_id, category_id)
 
     def get_recipe_id(self, name):
         recipe_id = self.repository.get_recipe_id(name)
         return recipe_id
-    
+
     def get_category_ids(self, recipe_id):
         category_ids = self.repository.get_category_ids(recipe_id)
         return category_ids
@@ -144,7 +143,7 @@ class RecipeService:
 
     def get_recipe_categories(self):
         return self.repository.get_recipe_categories()
-    
+
     def get_url(self, name):
         return self.repository.get_url(name)
 
