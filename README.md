@@ -2,6 +2,8 @@
 
 Sovelluksen avulla käyttäjän on mahdollista luoda oma reseptikirja.
 Käyttäjä voi lisätä, selata ja poistaa reseptejä.
+Reseptiin on mahdollista liittää URL-osoite sekä kategorioita. Reseptin verkkosivun voi tämän jälkeen avata nimen perusteella.
+Reseptejä pystyy hakemaan kategorioittain.
 
 ## Dokumentaatio
 
