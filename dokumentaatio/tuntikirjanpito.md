@@ -72,4 +72,11 @@
   - Luokkien Recipe_service ja Recipe_repository testien tekemistä
   - Sekvenssikaavio reseptin lisäämiselle
 
-### Työtunnit yhteensä: 41
+### 25.4.2022
+- Työtunnit 3
+- Mitä tein
+  - Pylint-korjaukset
+  - GitHub-releasen tekeminen
+  - Dokumenttien päivittäminen
+
+### Työtunnit yhteensä: 44
