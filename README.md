@@ -7,7 +7,7 @@ Reseptejä pystyy hakemaan kategorioittain.
 
 ## Dokumentaatio
 
-- [Vaatimusmaarittely](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 - [Tuntikirjanpito](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
