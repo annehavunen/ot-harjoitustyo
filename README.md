@@ -15,6 +15,17 @@ Reseptejä pystyy hakemaan kategorioittain.
 
 - [Arkkitehtuurikuvaus](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Asennus
+
+1. Asenna riippuvuudet komennolla:
+> poetry install
+
+2. Suorita vaadittavat alustustoimenpiteet komennolla:
+> poetry run invoke build
+
+3. Käynnistä sovellus komennolla:
+> poetry run invoke start
+
 ## Komentorivitoiminnot
 
 ### Ohjelman suorittaminen
