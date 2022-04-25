@@ -20,10 +20,7 @@ Reseptejä pystyy hakemaan kategorioittain.
 1. Asenna riippuvuudet komennolla:
 > poetry install
 
-2. Suorita vaadittavat alustustoimenpiteet komennolla:
-> poetry run invoke build
-
-3. Käynnistä sovellus komennolla:
+2. Käynnistä sovellus komennolla:
 > poetry run invoke start
 
 ## Komentorivitoiminnot
