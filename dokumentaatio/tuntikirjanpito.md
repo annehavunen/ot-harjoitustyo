@@ -84,4 +84,10 @@
 - Mitä tein
   - Tutustuin TkInter-ohjeisiin ja aloin miettiä omaa toteutusta
 
+### 30.4.2022
+- Työtunnit 6
+- Mitä tein
+  - Graafisen käyttöliittymän aloittaminen
+  - Ensimmäinen yhteys graafisen käyttöliittymän ja tietokannan välillä
+
 ### Työtunnit yhteensä: 51
