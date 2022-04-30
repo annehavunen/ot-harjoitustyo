@@ -1,6 +1,7 @@
 # ei ole vielä yhteydessä sovelluksen varsinaisiin toimintoihin
 from tkinter import ttk, constants
 
+
 class MainView:
     def __init__(self, root, handle_add_recipe):
         self.root = root

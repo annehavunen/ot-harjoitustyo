@@ -1,7 +1,8 @@
 # ei ole vielä yhteydessä sovelluksen varsinaisiin toimintoihin
-from tkinter import Tk, ttk, constants  # varmaan vain Tk tähän, muut muualle
-from main_view import MainView
-from add_recipe_view import AddRecipeView
+# lakkasi toimimasta, kun importtaa recipe_servicen
+# from tkinter import Tk, ttk, constants
+from ui.main_view import MainView
+from ui.add_recipe_view import AddRecipeView
 
 
 class UI:
@@ -32,13 +33,13 @@ class UI:
         self.current_view.pack()
 
 
-window = Tk()
-window.title("TkInter example")
+# window = Tk()
+# window.title("Recipe Book")
 
-ui = UI(window)
-ui.start()
+# ui = UI(window)
+# ui.start()
 
-window.mainloop()
+# window.mainloop()
 
 # siirrä nämä:
 #     def start(self):

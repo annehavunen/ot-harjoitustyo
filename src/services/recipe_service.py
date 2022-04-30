@@ -149,3 +149,6 @@ class RecipeService:
 
     def get_recipe_name(self, recipe_id):
         return self.repository.get_recipe_name(recipe_id)
+
+# testi
+# recipe_service = RecipeService()
