@@ -79,4 +79,9 @@
   - GitHub-releasen tekeminen
   - Dokumenttien päivittäminen
 
-### Työtunnit yhteensä: 49
+### 29.4.2022
+- Työtunnit 2
+- Mitä tein
+  - Tutustuin TkInter-ohjeisiin ja aloin miettiä omaa toteutusta
+
+### Työtunnit yhteensä: 51
