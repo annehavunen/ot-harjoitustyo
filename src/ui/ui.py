@@ -1,8 +1,8 @@
-# ei ole vielä yhteydessä sovelluksen varsinaisiin toimintoihin
-# lakkasi toimimasta, kun importtaa recipe_servicen
+# työstämisvaiheessa
 # from tkinter import Tk, ttk, constants
 from ui.main_view import MainView
 from ui.add_recipe_view import AddRecipeView
+from ui.browse_recipes_view import BrowseRecipesView
 
 
 class UI:
@@ -20,13 +20,22 @@ class UI:
 
     def show_main_view(self):
         self.hide_current_view()
-        self.current_view = MainView(self.root, self.show_add_recipe_view)
+        self.current_view = MainView(self.root, self.show_add_recipe_view, self.show_browse_recipes_view)
         self.current_view.pack()
     
     def show_add_recipe_view(self):
         self.hide_current_view()
 
         self.current_view = AddRecipeView(
+            self.root,
+            self.show_main_view
+        )
+        self.current_view.pack()
+
+    def show_browse_recipes_view(self):
+        self.hide_current_view()
+
+        self.current_view = BrowseRecipesView(
             self.root,
             self.show_main_view
         )

@@ -1,12 +1,13 @@
-# ei ole vielä yhteydessä sovelluksen varsinaisiin toimintoihin
+# työstämisvaiheessa
 from tkinter import ttk, constants
 
 
 class MainView:
-    def __init__(self, root, handle_add_recipe):
+    def __init__(self, root, handle_add_recipe, handle_browse_recipes):
         self.root = root
         self.frame = None
         self.handle_add_recipe = handle_add_recipe
+        self.handle_browse_recipes = handle_browse_recipes
 
         self.initialize()
 
@@ -19,16 +20,11 @@ class MainView:
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)
         label = ttk.Label(master=self.frame, text="Welcome to Recipe Book! \nYou can collect your favorite recipes from websites.")
-        # button = ttk.Button(
-        #     master=self.frame,
-        #     text="Add a recipe",
-        #     #command=self._handle_good_bye
-        # )
 
         add = ttk.Button(master=self.frame, text="Add a recipe", command=self.handle_add_recipe)
-        print = ttk.Button(master=self.frame, text="Print recipes") # loput napit eivät tee vielä mitään
-        open = ttk.Button(master=self.frame, text="Open a recipe")
-        change = ttk.Button(master=self.frame, text="Change a recipe")        
+        print = ttk.Button(master=self.frame, text="Browse recipes", command=self.handle_browse_recipes)
+        open = ttk.Button(master=self.frame, text="Open a recipe") # ehkei tarvita, jos ylempänä on hyperlinkit
+        change = ttk.Button(master=self.frame, text="Change a recipe")
         remove = ttk.Button(master=self.frame, text="Remove a recipe")
 
         label.grid(columnspan=2, sticky=constants.W, padx=5, pady=5)
@@ -40,6 +36,3 @@ class MainView:
 
         self.root.grid_columnconfigure(1, weight=1, minsize=300)
 
-
-        # label.grid(row=0, column=0)
-        # add.grid(row=1, column=0)
