@@ -55,12 +55,8 @@ class RecipeService:
         self.repository.add_recipe_category(recipe_id, category_id)
 
     def open_recipe(self, name):
-        recipe_id = self.repository.get_recipe_id(name)
-        if recipe_id is None:
-            return False
         url = self.repository.get_url(name)
         webbrowser.open(url)
-        return True
 
     def change_url(self, name, new_url):
         recipe_id = self.repository.get_recipe_id(name)
@@ -76,41 +72,27 @@ class RecipeService:
             return True
         return False
 
-    def print_all(self):
+    def print_all(self): # tekstikäyttöliittymä, poistan myöhemmin
         recipes = self.repository.find_all()
         for recipe in recipes:
             print(recipe)
 
-    def print_by_category(self, name):
+    def print_by_category(self, name):  # tekstikäyttöliittymä, poistan myöhemmin
         recipes = self.repository.find_by_category(name)
         for recipe in recipes:
             print(recipe)
 
-        # try:
-        #     number = int(input)
-        #     if number in range(1, self.printer.categories()+1):
-        #         name = ""
-        #         if number == 1:
-        #             name = "meat and poultry"
-        #         elif number == 2:
-        #             name = "seafood"
-        #         elif number == 3:
-        #             name = "vegetarian"
-        #         elif number == 4:
-        #             name = "snacks and side dishes"
-        #         elif number == 5:
-        #             name = "desserts"
-        #         elif number == 6:
-        #             name = "baking"
-        #         else:
-        #             name = "other"
-        #         recipes = self.repository.find_by_category(name)
-        #         for recipe in recipes:
-        #             print(recipe)
-        #         return True
-        #     return False
-        # except ValueError:
-        #     return False
+    def list_by_category(self, name):
+        # if number==0, haetaan kaikki
+        # recipes = []
+#        recipe_names = []
+        if name == "show all":
+            recipes = self.repository.list_all()
+        else:
+            recipes = self.repository.list_by_category(name)
+        return recipes
+#        print(recipe_names)
+
 
     def remove_recipe(self, name):
         recipe_id = self.repository.get_recipe_id(name)

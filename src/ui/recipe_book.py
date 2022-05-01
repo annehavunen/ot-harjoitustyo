@@ -50,8 +50,10 @@ class RecipeBook:
     def open_website(self):
         name = input("Name of the recipe you want to open (return with 'enter'): ")
         if name != "":
-            exist = self.recipe_service.open_recipe(name)
-            if not exist:
+            exist = self.recipe_service.get_recipe_id(name)
+            if exist:
+                self.recipe_service.open_recipe(name)
+            else:
                 print(f"There is no recipe called {name}")
         print()
         self.printer.print_main_commands()

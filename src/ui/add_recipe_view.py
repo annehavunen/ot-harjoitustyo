@@ -142,20 +142,11 @@ class AddRecipeView:
         url_label.grid(row=3, column=0)
         self.url_entry.grid(row=4, column=0)
         categories_label.grid(row=5, column=0)
-        checkbox1.grid(row=6, column=0)
-        checkbox2.grid(row=7, column=0)
-        checkbox3.grid(row=8, column=0)
-        checkbox4.grid(row=9, column=0)
-        checkbox5.grid(row=10, column=0)
-        checkbox6.grid(row=11, column=0)
-        checkbox7.grid(row=12, column=0)
+        checkbox1.grid(row=6, column=0, sticky=constants.W)
+        checkbox2.grid(row=7, column=0, sticky=constants.W)
+        checkbox3.grid(row=8, column=0, sticky=constants.W)
+        checkbox4.grid(row=9, column=0, sticky=constants.W)
+        checkbox5.grid(row=10, column=0, sticky=constants.W)
+        checkbox6.grid(row=11, column=0, sticky=constants.W)
+        checkbox7.grid(row=12, column=0, sticky=constants.W)
         create.grid(row=13, column=0)        
-
-
-    # "1": "1 meat and poultry",
-    # "2": "2 seafood",
-    # "3": "3 vegetarian",
-    # "4": "4 snacks and side dishes",
-    # "5": "5 desserts",
-    # "6": "6 baking",
-    # "7": "7 other"
