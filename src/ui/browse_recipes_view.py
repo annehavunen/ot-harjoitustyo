@@ -20,7 +20,6 @@ class BrowseRecipesView:
 
     def handle_category(self, selection):
         recipes = self.recipe_service.list_by_category(selection)
-        print(recipes)
 
         recipe_names = ""
         for recipe in recipes:
@@ -36,12 +35,11 @@ class BrowseRecipesView:
         if recipe_id:
             self.recipe_service.open_recipe(nimi)
         else:
-            nonexistent_label = ttk.Label(master=self.frame, text=f"Can't find recipe called {nimi}")
-            nonexistent_label.grid(row=3, column=0)
+            cant_find_label = ttk.Label(master=self.frame, text=f"Can't find recipe called {nimi}")
+            cant_find_label.grid(row=3, column=0)
 
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)
-        self.name_entry = ttk.Entry(master=self.root)
 
         back_button = ttk.Button(
             master=self.frame,

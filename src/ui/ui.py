@@ -1,5 +1,6 @@
 # työstämisvaiheessa
 # from tkinter import Tk, ttk, constants
+from ui.change_recipe_view import ChangeRecipeView
 from ui.main_view import MainView
 from ui.add_recipe_view import AddRecipeView
 from ui.browse_recipes_view import BrowseRecipesView
@@ -20,7 +21,11 @@ class UI:
 
     def show_main_view(self):
         self.hide_current_view()
-        self.current_view = MainView(self.root, self.show_add_recipe_view, self.show_browse_recipes_view)
+        self.current_view = MainView(
+            self.root,
+            self.show_add_recipe_view,
+            self.show_browse_recipes_view,
+            self.show_change_recipe_view)
         self.current_view.pack()
     
     def show_add_recipe_view(self):
@@ -36,6 +41,15 @@ class UI:
         self.hide_current_view()
 
         self.current_view = BrowseRecipesView(
+            self.root,
+            self.show_main_view
+        )
+        self.current_view.pack()
+
+    def show_change_recipe_view(self):
+        self.hide_current_view()
+
+        self.current_view = ChangeRecipeView(
             self.root,
             self.show_main_view
         )

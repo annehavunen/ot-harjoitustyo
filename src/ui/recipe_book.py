@@ -75,26 +75,34 @@ class RecipeBook:
         if name != "":
             new_name = input("New name (return with 'enter'): ")
             if new_name != "":
-                changed = self.recipe_service.change_name(name, new_name)
-                if not changed:
-                    print(f"There is no recipe called {name}")
-                else:
+                exist = self.recipe_service.get_recipe_id(name)
+                if exist:
+                    self.recipe_service.change_name(name, new_name)
                     print("Name changed")
+                else:
+                    print(f"There is no recipe called {name}")
 
     def change_url(self):
-        name = input("Which recipe's url do you want to change (return with 'enter')? ")
+        name = input("Which recipe's URL do you want to change (return with 'enter')? ")
         if name != "":
-            url = input("New url (press 'r' to return): ")
+            url = input("New URL (press 'r' to return): ")
             if url != "r":
-                changed = self.recipe_service.change_url(name, url)
-                if not changed:
-                    print(f"There is no recipe called {name}")
+                exist = self.recipe_service.get_recipe_id(name)
+                if exist:
+                    self.recipe_service.change_url(name, url)
+                    print("URL changed")
                 else:
-                    print("Url changed")
+                    print(f"There is no recipe called {name}")
 
     def remove_recipe(self):
         name = input("Name of the recipe (return with 'enter'): ")
         if name != "":
+            exist = self.recipe_service.get_recipe_id(name)
+            if exist:
+                self.recipe_service.remove_recipe(name)
+            else:
+                print(f"There is no recipe called {name}")
+
             removed = self.recipe_service.remove_recipe(name)
             if not removed:
                 print(f"There is no recipe called {name}")

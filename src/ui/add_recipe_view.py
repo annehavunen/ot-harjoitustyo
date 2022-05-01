@@ -30,24 +30,23 @@ class AddRecipeView:
         self.frame.destroy()
     
     def handle_create(self):
+        comment_label = ttk.Label(master=self.frame, text="")
+        comment_label.grid(row=14, column=0, sticky=constants.EW)
         recipe_name = self.name_entry.get()
-        recipe_url = self.url_entry.get()
-        recipe_id = self.recipe_service.add_recipe(recipe_name, recipe_url)
-        if recipe_id:
-            categories = self.handle_categories()
-            self.recipe_service.add_categories(recipe_id, categories)
-            added_label = ttk.Label(master=self.frame, text="Recipe added! Click 'Back'")
-            added_label.grid(row=14, column=0)
-            print("recipe id:",recipe_id)
-            print("categories:", categories)
+        if recipe_name == "":
+            comment_label = ttk.Label(master=self.frame, text="Name must be at least one character long.")
+            comment_label.grid(row=14, column=0, sticky=constants.W)
         else:
-            added_label = ttk.Label(master=self.frame, text=f"Recipe with the name {recipe_name} exists already")
-            added_label.grid(row=14, column=0)
-
-            print(f"Recipe with the name {recipe_name} exists already")
-        print("Value of name is:", recipe_name)
-        print("Value of url is:", recipe_url)
-        
+            recipe_url = self.url_entry.get()
+            recipe_id = self.recipe_service.add_recipe(recipe_name, recipe_url)
+            if recipe_id:
+                categories = self.handle_categories()
+                self.recipe_service.add_categories(recipe_id, categories)
+                comment_label = ttk.Label(master=self.frame, text="Recipe added! Return with 'Back'.")
+                comment_label.grid(row=14, column=0, sticky=constants.W)
+            else:
+                comment_label = ttk.Label(master=self.frame, text=f"Recipe with the name {recipe_name} exists already.")
+                comment_label.grid(row=14, column=0, sticky=constants.W)
 
     def handle_categories(self):
         categories = ""
@@ -71,7 +70,7 @@ class AddRecipeView:
         self.frame = ttk.Frame(master=self.root)
         self.name_entry = ttk.Entry(master=self.root)
 
-        back = ttk.Button(
+        back_button = ttk.Button(
             master=self.frame,
             text="Back",
             command=self.handle_back
@@ -136,7 +135,7 @@ class AddRecipeView:
             command=self.handle_create
         )
 
-        back.grid(row=0, column=0)
+        back_button.grid(row=0, column=0)
         name_label.grid(row=1, column=0)
         self.name_entry.grid(row=2, column=0)
         url_label.grid(row=3, column=0)

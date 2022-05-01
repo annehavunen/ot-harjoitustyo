@@ -60,17 +60,11 @@ class RecipeService:
 
     def change_url(self, name, new_url):
         recipe_id = self.repository.get_recipe_id(name)
-        if recipe_id:
-            self.repository.change_url(new_url, recipe_id)
-            return True
-        return False
+        self.repository.change_url(new_url, recipe_id)
 
     def change_name(self, name, new_name):
         recipe_id = self.repository.get_recipe_id(name)
-        if recipe_id:
-            self.repository.change_name(new_name, recipe_id)
-            return True
-        return False
+        self.repository.change_name(new_name, recipe_id)
 
     def print_all(self): # tekstikäyttöliittymä, poistan myöhemmin
         recipes = self.repository.find_all()
@@ -83,28 +77,20 @@ class RecipeService:
             print(recipe)
 
     def list_by_category(self, name):
-        # if number==0, haetaan kaikki
-        # recipes = []
-#        recipe_names = []
         if name == "show all":
             recipes = self.repository.list_all()
         else:
             recipes = self.repository.list_by_category(name)
         return recipes
-#        print(recipe_names)
-
 
     def remove_recipe(self, name):
         recipe_id = self.repository.get_recipe_id(name)
-        if recipe_id:
-            self.repository.remove_recipe(name)
-            category_ids = self.get_category_ids(recipe_id)
-            if category_ids:
-                for category_id in category_ids:
-                    self.remove_category(category_id)
-                    self.remove_recipe_category(recipe_id, category_id)
-            return True
-        return False
+        self.repository.remove_recipe(name)
+        category_ids = self.get_category_ids(recipe_id)
+        if category_ids:
+            for category_id in category_ids:
+                self.remove_category(category_id)
+                self.remove_recipe_category(recipe_id, category_id)
 
     def remove_category(self, category_id):
         self.repository.remove_category(category_id)
