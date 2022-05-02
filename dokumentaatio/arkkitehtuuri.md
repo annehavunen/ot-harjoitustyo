@@ -1,6 +1,15 @@
 ## Sovelluslogiikka
 
+Sovelluksen looginen malli perustuu luokkiin Recipe ja Category
+sekä tietokantatauluun Recipe_category, joka yhdistää reseptit ja kategoriat toisiinsa.
+
 ![arkkitehtuuri](./kuvat/arkkitehtuuri.png)
+
+Luokka RecipeService tarjoaa metodit käyttöliittymän vaatimille toiminnoille.
+Se välittää myös toiminnot RecipeRepositoryyn.
+
+RecipeRepository tallentaa luokkiin Recipe, Category ja Recipe_category.
+Se myös hakee niistä tietoa.
 
 ## Tietojen pysyväistallennus
 
