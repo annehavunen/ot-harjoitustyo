@@ -6,7 +6,8 @@
 
 ### Reseptin luominen
 
-Kun käyttäjä valitsee luoda uuden reseptin, etenee sovelluksen logiikka seuraavasti:
+Ensin käyttäjä valitsee luoda uuden reseptin ja kirjoittaa kenttiin reseptin nimen, verkko-osoitteen ja haluamansa kategoriat.
+Sen jälkeen sovelluksen logiikka etenee seuraavasti:
 
 ![sekvenssi-reseptin-lisaaminen](./kuvat/sekvenssi-reseptin-lisaaminen.png)
 
