@@ -1,7 +1,16 @@
-from ui.recipe_book import RecipeBook
-from initialize_database import initialize_database
+from tkinter import Tk
+from ui.ui import UI
 
 
-initialize_database()
-rb = RecipeBook()
-rb.start()
+def main():
+    window = Tk()
+    window.title('Recipe Book')
+
+    ui_view = UI(window)
+    ui_view.start()
+
+    window.mainloop()
+
+
+if __name__ == '__main__':
+    main()

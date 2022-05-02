@@ -22,13 +22,6 @@ class TestRecipeRepository(unittest.TestCase):
         recipe_repository.add_recipe(dublicate)
         self.assertEqual(len(recipes), 1)
         self.assertEqual(recipes[0].url, self.cheesecake.url)
-    
-    # def test_find_all(self):    # ei lisää htmlcovin kattavuutta
-    #     recipe_repository.add_recipe(self.cheesecake)
-    #     recipes = recipe_repository.find_all()
-    #     self.assertEqual(len(recipes), 1)
-    #     self.assertEqual(recipes[0].name, self.cheesecake.name)
-    #     self.assertEqual(recipes[0].url, self.cheesecake.url)
 
     def test_get_url(self):
         recipe_repository.add_recipe(self.cheesecake)

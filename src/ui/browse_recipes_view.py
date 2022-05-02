@@ -35,7 +35,7 @@ class BrowseRecipesView:
         if recipe_id:
             self.recipe_service.open_recipe(nimi)
         else:
-            cant_find_label = ttk.Label(master=self.frame, text=f"Can't find recipe called {nimi}")
+            cant_find_label = ttk.Label(master=self.frame, text=f"Can't find recipe called '{nimi}'")
             cant_find_label.grid(row=3, column=0)
 
     def initialize(self):

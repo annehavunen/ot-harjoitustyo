@@ -1,4 +1,3 @@
-#from tkinter import *
 from tkinter import ttk, constants
 from services.recipe_service import RecipeService
 import tkinter
@@ -42,10 +41,10 @@ class AddRecipeView:
             if recipe_id:
                 categories = self.handle_categories()
                 self.recipe_service.add_categories(recipe_id, categories)
-                comment_label = ttk.Label(master=self.frame, text="Recipe added! Return with 'Back'.")
+                comment_label = ttk.Label(master=self.frame, text=f"Recipe '{recipe_name}' added! Return with Back.")
                 comment_label.grid(row=14, column=0, sticky=constants.W)
             else:
-                comment_label = ttk.Label(master=self.frame, text=f"Recipe with the name {recipe_name} exists already.")
+                comment_label = ttk.Label(master=self.frame, text=f"Recipe with the name '{recipe_name}' exists already.")
                 comment_label.grid(row=14, column=0, sticky=constants.W)
 
     def handle_categories(self):
@@ -80,11 +79,6 @@ class AddRecipeView:
         self.name_entry = ttk.Entry(master=self.frame)
         url_label = ttk.Label(master=self.frame, text="URL of the recipe")
         self.url_entry = ttk.Entry(master=self.frame)
-
-        # var1 = IntVar()
-        # nappi1 = Checkbutton(master=self.frame, text="male", variable=var1).grid(row=0, sticky=W)
-        # var2 = IntVar()
-        # nappi2 = Checkbutton(master=self.frame, text="female", variable=var2).grid(row=1, sticky=W)
 
         categories_label = ttk.Label(master=self.frame, text="Choose the categories of the recipe:")
         checkbox1 = ttk.Checkbutton(master=self.frame,

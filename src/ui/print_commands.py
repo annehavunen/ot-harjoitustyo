@@ -20,7 +20,7 @@ categories = {
     "4": "4 snacks and side dishes",
     "5": "5 desserts",
     "6": "6 baking",
-    "7": "7 other" # ehkä vielä 1-2 kategoriaa
+    "7": "7 other"
 }
 
 printing_options = {

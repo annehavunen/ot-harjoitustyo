@@ -1,4 +1,3 @@
-# työstämisvaiheessa
 from tkinter import ttk, constants
 
 
@@ -20,7 +19,8 @@ class MainView:
     
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)
-        label = ttk.Label(master=self.frame, text="Welcome to Recipe Book! \nYou can collect your favorite recipes from websites.")
+        label = ttk.Label(master=self.frame, text=
+        "Welcome to Recipe Book! \nYou can collect your favorite recipes from websites.")
 
         add = ttk.Button(master=self.frame, text="Add a recipe", command=self.handle_add_recipe)
         browse = ttk.Button(master=self.frame, text="Browse recipes", command=self.handle_browse_recipes)

@@ -66,16 +66,6 @@ class RecipeService:
         recipe_id = self.repository.get_recipe_id(name)
         self.repository.change_name(new_name, recipe_id)
 
-    def print_all(self): # tekstikäyttöliittymä, poistan myöhemmin
-        recipes = self.repository.find_all()
-        for recipe in recipes:
-            print(recipe)
-
-    def print_by_category(self, name):  # tekstikäyttöliittymä, poistan myöhemmin
-        recipes = self.repository.find_by_category(name)
-        for recipe in recipes:
-            print(recipe)
-
     def list_by_category(self, name):
         if name == "show all":
             recipes = self.repository.list_all()
@@ -117,6 +107,3 @@ class RecipeService:
 
     def get_recipe_name(self, recipe_id):
         return self.repository.get_recipe_name(recipe_id)
-
-# testi
-# recipe_service = RecipeService()

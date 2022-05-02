@@ -13,12 +13,6 @@ class RecipeRepository:
             (recipe.name, recipe.url))
         return added.lastrowid
 
-    def find_all(self): # tekstikäyttöliittymä, poistan myöhemmin
-        cursor = self._connection.cursor()
-        cursor.execute("SELECT * FROM Recipe")
-        rows = cursor.fetchall()
-        return [Recipe(row["name"], row["url"]) for row in rows]
-
     def add_category(self, category):
         cursor = self._connection.cursor()
         added = cursor.execute(
@@ -31,15 +25,6 @@ class RecipeRepository:
         cursor.execute(
             "INSERT INTO Recipe_category VALUES (?, ?)",
             (recipe_id, category_id))
-
-    def find_by_category(self, name):   # tekstikäyttöliittymä, poistan myöhemmin
-        cursor = self._connection.cursor()
-        cursor.execute("""
-            SELECT R.name, R.url FROM Recipe R, Category C, Recipe_category RC
-            WHERE C.name = (?) AND R.id = RC.recipe_id AND C.id = RC.category_id""",
-            [name])
-        rows = cursor.fetchall()
-        return [Recipe(row["name"], row["url"]) for row in rows]
 
     def list_all(self):
         cursor = self._connection.cursor()

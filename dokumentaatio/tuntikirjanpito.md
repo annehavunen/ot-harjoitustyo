@@ -90,4 +90,9 @@
   - Graafisen käyttöliittymän aloittaminen
   - Ensimmäinen yhteys graafisen käyttöliittymän ja tietokannan välillä
 
+### 1.5.2022
+- Työtunnit 7
+- Mitä tein
+  - Muutos tehty tekstikäyttöliittymästä graafiseksi
+
 ### Työtunnit yhteensä: 51
