@@ -60,3 +60,17 @@ class TestRecipeRepository(unittest.TestCase):
         recipe_repository.remove_recipe_category(1, 1)
         recipe_categories = recipe_repository.get_recipe_categories()
         self.assertEqual(len(recipe_categories), 0)
+
+    def test_change_url(self):
+        recipe_repository.add_recipe(self.cheesecake)
+        recipe_id = recipe_repository.get_recipe_id(self.cheesecake.name)
+        recipe_repository.change_url("new.address", recipe_id)
+        url = recipe_repository.get_url(self.cheesecake.name)
+        self.assertEqual(url, "new.address")
+
+    def test_change_name(self):
+        recipe_repository.add_recipe(self.cheesecake)
+        recipe_id = recipe_repository.get_recipe_id(self.cheesecake.name)
+        recipe_repository.change_name("new name", recipe_id)
+        name = recipe_repository.get_recipe_name(recipe_id)
+        self.assertEqual(name, "new name")

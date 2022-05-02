@@ -110,4 +110,10 @@ class RecipeRepository:
         recipe = cursor.execute("SELECT name FROM Recipe WHERE id = (?)", [recipe_id]).fetchone()
         return recipe[0]
 
+    def find_all(self):
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM Recipe")
+        rows = cursor.fetchall()
+        return [Recipe(row["name"], row["url"]) for row in rows]
+
 recipe_repository = RecipeRepository(get_database_connection())

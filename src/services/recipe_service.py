@@ -68,9 +68,13 @@ class RecipeService:
 
     def list_by_category(self, name):
         if name == "show all":
-            recipes = self.repository.list_all()
+            recipes = self.list_all()
         else:
             recipes = self.repository.list_by_category(name)
+        return recipes
+
+    def list_all(self):
+        recipes = self.repository.list_all()
         return recipes
 
     def remove_recipe(self, name):
