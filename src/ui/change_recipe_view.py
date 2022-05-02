@@ -39,15 +39,19 @@ class ChangeRecipeView:
                     comment_label.grid(row=9, column=0, sticky=constants.W)
                 else:
                     if self.change_url.get() == 0 and self.change_name.get() == 0:
-                        comment_label = ttk.Label(master=self.frame, text="No changes to be committed.")
+                        comment_label = ttk.Label(master=self.frame, text="Choose what changes you want to commit.")
                         comment_label.grid(row=9, column=0, sticky=constants.W)
                     elif self.change_url.get() == 1 and self.change_name.get() == 1:
                         new_url = self.new_url_entry.get()
                         self.recipe_service.change_url(name, new_url)
                         new_name = self.new_name_entry.get()
+                        exist = self.recipe_service.get_recipe_id(name)
                         if new_name == "":
                             comment_label = ttk.Label(master=self.frame, text="URL changed. New name cannot be empty.")
                             comment_label.grid(row=9, column=0, sticky=constants.W)
+                        elif exist:
+                            comment_label = ttk.Label(master=self.frame, text=f"URL changed. Name '{new_name}' exists already.")
+                            comment_label.grid(row=9, column=0, sticky=constants.W)                            
                         else:
                             self.recipe_service.change_name(name, new_name)
                             comment_label = ttk.Label(master=self.frame, text="Name and URL changed.")
@@ -60,8 +64,12 @@ class ChangeRecipeView:
                             comment_label.grid(row=9, column=0, sticky=constants.W)
                         else:
                             new_name = self.new_name_entry.get()
+                            exist = self.recipe_service.get_recipe_id(name)
                             if new_name == "":
                                 comment_label = ttk.Label(master=self.frame, text="New name cannot be empty.")
+                                comment_label.grid(row=9, column=0, sticky=constants.W)
+                            elif exist:
+                                comment_label = ttk.Label(master=self.frame, text=f"Name '{new_name}' exists already.")
                                 comment_label.grid(row=9, column=0, sticky=constants.W)
                             else:
                                 self.recipe_service.change_name(name, new_name)

@@ -2,6 +2,14 @@
 
 ![arkkitehtuuri](./kuvat/arkkitehtuuri.png)
 
+## Tietojen pysyväistallennus
+
+Luokka RecipeRepository vastaa tietojen tallentamisesta SQLite-tietokantaan.
+Käytössä on kolme taulua,
+jotka alustetaan [initialize_database.py](https://github.com/annehavunen/ot-harjoitustyo/blob/master/src/initialize_database.py)-tiedostossa.
+Reseptit tallennetaan tauluun Recipe sekä resepteihin liittyvät kategoriat tauluun Category.
+Reseptien ja kategorioiden id:t saadaan yhteyteen Recipe_category-taulun avulla.
+
 ## Päätoiminnallisuudet
 
 ### Reseptin luominen
