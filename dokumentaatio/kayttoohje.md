@@ -27,7 +27,7 @@ Päänäkymästä voi siirtyä uuden reseptin luomisnäkymään painamalla paini
 
 Uusi resepti luodaan syöttämällä tiedot valkoisiin syötekenttiin ja painamalla painiketta "Create a recipe".
 
-![reseptin-luonti](.kuvat/kayttoohje-uusi-resepti.png)
+![reseptin-luonti](./kuvat/kayttoohje-uusi-resepti.png)
 
 Takaisin päänäkymään pääsee painamalla painiketta "Back".
 
@@ -39,7 +39,7 @@ Jokainen resepti näkyy niiden kategorioiden alla, mihin käyttäjä on reseptin
 Valikossa on myös vaihtoehto "show all", jolloin käyttäjä näkee kaikki lisäämänsä reseptit kerralla.
 Mikäli käyttäjä kirjoittaa reseptin nimen ja painaa "Open", avaa ohjelma URL-osoitteen, jonka käyttäjä on reseptille antanut.
 
-![reseptien-selaaminen](.kuvat/kayttoohje-reseptien-selaaminen)
+![reseptien-selaaminen](./kuvat/kayttoohje-reseptien-selaaminen)
 
 # Reseptien muuttaminen
 
@@ -48,4 +48,4 @@ Muuttaakseen reseptiä käyttäjän tulee kirjoittaa reseptin nimi ylimpään sy
 Sen jälkeen hän valitsee valintaruuduista, haluaako hän muuttaa reseptin nimeä tai osoitetta tai poistaa sen kokonaan.
 Mikäli kaikki on kunnossa, tallentuvat muutokset painamalla painiketta "Save changes".
 
-![reseptien-muuttaminen](.kuvat/kayttoohje-reseptien-muuttaminen)
+![reseptien-muuttaminen](./kuvat/kayttoohje-reseptien-muuttaminen)
