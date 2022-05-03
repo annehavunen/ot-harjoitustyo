@@ -30,13 +30,15 @@ class BrowseRecipesView:
         T.grid(row=5, column=0)
 
     def handle_open(self):
+        comment_label = ttk.Label(master=self.frame, text=f"")
+        comment_label.grid(row=3, column=0, sticky=constants.EW)
         nimi = self.name_entry.get()
         recipe_id = self.recipe_service.get_recipe_id(nimi)
         if recipe_id:
             self.recipe_service.open_recipe(nimi)
         else:
-            cant_find_label = ttk.Label(master=self.frame, text=f"Can't find recipe called '{nimi}'")
-            cant_find_label.grid(row=3, column=0)
+            comment_label = ttk.Label(master=self.frame, text=f"Can't find recipe called '{nimi}'")
+            comment_label.grid(row=3, column=0)
 
     def initialize(self):
         self.frame = ttk.Frame(master=self.root)
