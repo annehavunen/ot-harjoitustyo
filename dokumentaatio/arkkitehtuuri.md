@@ -1,3 +1,15 @@
+# Arkkitehtuurikuvaus
+
+## Rakenne
+
+Koodin pakkausrakenne on seuraava:
+
+![arkkitehtuuri-pakkaus](./kuvat/arkkitehtuuri-pakkaus.png)
+
+Pakkaus ui sisältää käyttöliittymästä vastaavan koodin.
+Services sisältää sovelluslogiikasta ja repositories tiedon pysyväistallennuksesta vastaavan koodin.
+Pakkauksessa entities on sovelluksen käyttämiä tietokohteita kuvastavat luokat.
+
 ## Sovelluslogiikka
 
 Sovelluksen looginen malli perustuu luokkiin Recipe ja Category
