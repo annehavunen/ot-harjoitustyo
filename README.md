@@ -11,11 +11,11 @@ Reseptejä pystyy hakemaan kategorioittain.
 
 - [Vaatimusmäärittely](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-- [Tuntikirjanpito](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Arkkitehtuurikuvaus](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+- [Työaikakirjanpito](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 - [Changelog](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
-
-- [Arkkitehtuurikuvaus](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 ## Asennus
 
