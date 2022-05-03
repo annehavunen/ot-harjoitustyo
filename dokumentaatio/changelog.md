@@ -28,3 +28,9 @@
 - Nostettu testikattavuutta
 - Vuorovaikutus käyttäjän kanssa on siirretty kokonaan käyttöliittymään RecipeBook
 - Luotu reseptin lisäämistä kuvaava sekvenssikaavio
+
+## Viikko 6
+
+- Käyttöliittymä muutettu graafiseksi
+- Nostettu testikattavuutta
+- Aloitettu docstring-dokumentointi
