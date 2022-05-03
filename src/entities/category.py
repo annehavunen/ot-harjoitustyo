@@ -1,6 +1,6 @@
 class Category:
     """Luokka, joka kuvaa yksittäistä kategoriaa.
-    
+
     Attributes:
         name: Merkkijonoarvo, joka kuvaa kategorian nimeä.
     """

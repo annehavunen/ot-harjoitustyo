@@ -34,3 +34,5 @@
 - Käyttöliittymä muutettu graafiseksi. Toteutusta ei ole vielä hiottu.
 - Nostettu testikattavuutta
 - Aloitettu docstring-dokumentointi
+- Luotu ohjelmalle alustava käyttöohje
+- Täydennetty yleisesti dokumentaatiota

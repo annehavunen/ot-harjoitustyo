@@ -1,6 +1,6 @@
 class Recipe:
     """Luokka, joka kuvaa yksittäistä reseptiä.
-    
+
     Attributes:
         name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
         url: Merkkijonoarvo, joka kuvaa reseptin verkko-osoitetta.

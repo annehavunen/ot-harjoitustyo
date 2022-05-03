@@ -31,13 +31,14 @@ class RecipeService:
             url: Merkkijonoarvo, joka kuvaa reseptin verkko-osoitetta.
 
         Returns:
-            Luodun reseptin id, mikäli lisäys onnistui
+            Luodun reseptin id, mikäli lisäys onnistui. Muussa tapauksessa None.
         """
         recipe_id = self.repository.get_recipe_id(name)
         if not recipe_id:
             recipe = Recipe(name, url)
             recipe_id = self.repository.add_recipe(recipe)
             return recipe_id
+        return None
 
     def add_categories(self, recipe_id, types):
         """Lisää kategoriat ja resepti-kategoriat yksi kerrallaan.
@@ -64,7 +65,7 @@ class RecipeService:
             number: Integer-arvo, joka kuvaa kategorian numeroa.
 
         Returns:
-            Luodun kategorian id. 
+            Luodun kategorian id.
         """
         name = ""
         if number == 1:

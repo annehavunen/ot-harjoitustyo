@@ -106,6 +106,7 @@
 - Mitä tein
   - Koodin parantelua
   - Docstring-dokumentointia
-  - Dokumentaation täydentämistä
+  - Käyttöohjeen luominen
+  - Muuta dokumentaation täydentämistä
 
-### Työtunnit yhteensä: 59
+### Työtunnit yhteensä: 72

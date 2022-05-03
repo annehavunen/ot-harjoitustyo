@@ -2,6 +2,7 @@ from tkinter import ttk, constants
 from services.recipe_service import RecipeService
 import tkinter
 
+
 class BrowseRecipesView:
     """Reseptien selaamisesta vastaava näkymä."""
 
