@@ -31,6 +31,6 @@
 
 ## Viikko 6
 
-- Käyttöliittymä muutettu graafiseksi
+- Käyttöliittymä muutettu graafiseksi. Toteutusta ei ole vielä hiottu.
 - Nostettu testikattavuutta
 - Aloitettu docstring-dokumentointi
