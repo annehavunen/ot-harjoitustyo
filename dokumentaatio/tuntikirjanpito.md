@@ -102,10 +102,10 @@
   - Dokumentaation täydentämistä
 
 ### 3.5.2022
-- Työtunnit 4
+- Työtunnit 5
 - Mitä tein
   - Koodin parantelua
   - Docstring-dokumentointia
   - Dokumentaation täydentämistä
 
-### Työtunnit yhteensä: 58
+### Työtunnit yhteensä: 59
