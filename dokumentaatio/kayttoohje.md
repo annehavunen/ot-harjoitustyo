@@ -39,13 +39,13 @@ Jokainen resepti näkyy niiden kategorioiden alla, mihin käyttäjä on reseptin
 Valikossa on myös vaihtoehto "show all", jolloin käyttäjä näkee kaikki lisäämänsä reseptit kerralla.
 Mikäli käyttäjä kirjoittaa reseptin nimen ja painaa "Open", avaa ohjelma URL-osoitteen, jonka käyttäjä on reseptille antanut.
 
-![reseptien-selaaminen](./kuvat/kayttoohje-reseptien-selaaminen)
+![reseptien-selaaminen](./kuvat/kayttoohje-reseptien-selaaminen.png)
 
-# Reseptien muuttaminen
+## Reseptien muuttaminen
 
 Päänäkymästä voi siirtyä reseptien muuttamisnäkymään painamalla painiketta "Change a recipe".
 Muuttaakseen reseptiä käyttäjän tulee kirjoittaa reseptin nimi ylimpään syötekenttään.
 Sen jälkeen hän valitsee valintaruuduista, haluaako hän muuttaa reseptin nimeä tai osoitetta tai poistaa sen kokonaan.
 Mikäli kaikki on kunnossa, tallentuvat muutokset painamalla painiketta "Save changes".
 
-![reseptien-muuttaminen](./kuvat/kayttoohje-reseptien-muuttaminen)
+![reseptien-muuttaminen](./kuvat/kayttoohje-reseptien-muuttaminen.png)
