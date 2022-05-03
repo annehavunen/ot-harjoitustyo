@@ -95,4 +95,10 @@
 - Mitä tein
   - Muutos tehty tekstikäyttöliittymästä graafiseksi
 
-### Työtunnit yhteensä: 51
+### 2.5.2022
+- Työtunnit 3
+- Mitä tein
+  - Koodin parantelua
+  - Dokumentaation täydentämistä
+
+### Työtunnit yhteensä: 54
