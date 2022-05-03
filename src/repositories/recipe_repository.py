@@ -3,10 +3,27 @@ from entities.recipe import Recipe
 
 
 class RecipeRepository:
+    """Resepteihin ja kategorioihin liittyvistä tietokantaoperaatioista vastaava luokka"""
+
     def __init__(self, connection):
+        """Luokan konstruktori.
+
+        Args:
+            connection: Tietokantayhteyden connect-olio.
+        """
+
         self._connection = connection
 
     def add_recipe(self, recipe):
+        """Tallentaa reseptin tietokantaan.
+
+        Args:
+            recipe: Tallennettava resepti Recipe-oliona.
+
+        Returns:
+            Tallennetun reseptin id-tunnus.
+        """
+
         cursor = self._connection.cursor()
         added = cursor.execute(
             "INSERT INTO Recipe (name, url) VALUES (?, ?)",
@@ -14,6 +31,14 @@ class RecipeRepository:
         return added.lastrowid
 
     def add_category(self, category):
+        """Tallentaa kategorian tietokantaan.
+
+        Args:
+            category: Tallennettava kategoria Category-oliona.
+
+        Returns:
+            Tallennetun reseptin id-tunnus.
+        """
         cursor = self._connection.cursor()
         added = cursor.execute(
             "INSERT INTO Category (name) VALUES (?)",
