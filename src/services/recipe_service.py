@@ -20,7 +20,6 @@ class RecipeService:
                 Oletusarvoltaan PrintCommands-olio.
                 Olio, jokka on PrintCommands-luokkaa vastaavat metodit.
         """
-
         self.repository = RecipeRepository(get_database_connection())
         self.printer = PrintCommands()
 
@@ -34,7 +33,6 @@ class RecipeService:
         Returns:
             Luodun reseptin id, mikäli lisäys onnistui
         """
-
         recipe_id = self.repository.get_recipe_id(name)
         if not recipe_id:
             recipe = Recipe(name, url)
@@ -48,7 +46,6 @@ class RecipeService:
             recipe_id: Integer-arvo, joka kuvaa reseptin id-tunnusta.
             types: Merkkijonoarvo, joka kuvaa lisättäviä kategorioita.
         """
-
         added = set()
         for char in types:
             try:
@@ -69,7 +66,6 @@ class RecipeService:
         Returns:
             Luodun kategorian id. 
         """
-
         name = ""
         if number == 1:
             name = "meat and poultry"
@@ -96,7 +92,6 @@ class RecipeService:
             recipe_id: Integer-arvo, joka kuvaa reseptin id-tunnusta.
             category_id: Integer-arvo, joka kuvaa kategorian id-tunnusta.
         """
-
         self.repository.add_recipe_category(recipe_id, category_id)
 
     def open_recipe(self, name):
@@ -105,7 +100,6 @@ class RecipeService:
         Args:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
         """
-
         url = self.repository.get_url(name)
         webbrowser.open(url)
 
@@ -116,7 +110,6 @@ class RecipeService:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
             new_url: Merkkijonoarvo, joka kuvaa reseptin uutta URL-osoitetta.
         """
-
         recipe_id = self.repository.get_recipe_id(name)
         self.repository.change_url(new_url, recipe_id)
 
@@ -127,7 +120,6 @@ class RecipeService:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
             new_name: Merkkijonoarvo, joka kuvaa reseptin uutta nimeä.
         """
-
         recipe_id = self.repository.get_recipe_id(name)
         self.repository.change_name(new_name, recipe_id)
 
@@ -140,7 +132,6 @@ class RecipeService:
         Returns:
             Reseptien nimet listana.
         """
-
         if name == "show all":
             recipes = self.list_all()
         else:
@@ -153,7 +144,6 @@ class RecipeService:
         Returns:
             Reseptien nimet listana.
         """
-
         recipes = self.repository.list_all()
         return recipes
 
@@ -163,7 +153,6 @@ class RecipeService:
         Args:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
         """
-
         recipe_id = self.repository.get_recipe_id(name)
         self.repository.remove_recipe(name)
         category_ids = self.get_category_ids(recipe_id)
@@ -178,7 +167,6 @@ class RecipeService:
         Args:
             category_id: Integer-arvo, joka kuvaa kategorian id-tunnusta.
         """
-
         self.repository.remove_category(category_id)
 
     def remove_recipe_category(self, recipe_id, category_id):
@@ -188,7 +176,6 @@ class RecipeService:
             recipe_id: Integer-arvo, joka kuvaa reseptin id-tunnusta.
             category_id: Integer-arvo, joka kuvaa kategorian id-tunnusta.
         """
-
         self.repository.remove_recipe_category(recipe_id, category_id)
 
     def get_recipe_id(self, name):
@@ -198,9 +185,8 @@ class RecipeService:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
 
         Returns:
-            Reseptin id-tunnus.
+            Reseptin id-tunnus Integer-arvona.
         """
-
         recipe_id = self.repository.get_recipe_id(name)
         return recipe_id
 
@@ -213,7 +199,6 @@ class RecipeService:
         Returns:
             Kategorioiden numerot listana.
         """
-
         category_ids = self.repository.get_category_ids(recipe_id)
         return category_ids
 
