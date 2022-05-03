@@ -48,4 +48,4 @@ Muuttaakseen reseptiä käyttäjän tulee kirjoittaa reseptin nimi ylimpään sy
 Sen jälkeen hän valitsee valintaruuduista, haluaako hän muuttaa reseptin nimeä tai osoitetta tai poistaa sen kokonaan.
 Mikäli kaikki on kunnossa, tallentuvat muutokset painamalla painiketta "Save changes".
 
-![reseptien-muuttaminen](./kuvat/kayttoohje-reseptien-muuttaminen.png)
+![reseptin-muuttaminen](./kuvat/kayttoohje-reseptin-muuttaminen.png)
