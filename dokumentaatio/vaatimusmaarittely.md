@@ -22,4 +22,4 @@ Suuremmilla oikeuksilla varustettua pääkäyttäjää ei todennäköisesti tule
 - Resepteihin voi liittää jonkin kuvan
 - Reseptien lisäksi on menu-tyylinen kategoria, johon voi suunnitella ateriakokonaisuuksia erilaisiin tilaisuuksiin. Osioon voi hahmotella myös esimerkiksi päivän tai viikon ruokasuunnitelmaa. 
   - Yksittäisistä ruokalajeista voi muodostaa linkit niitä vastaaviin resepteihin (__tehty__)
-- Reseptikirja voi toimia kokonaan tai osittain hallinnointiohjelmistona internetissä oleville resepteille, jolloin reseptiä luodessa täytetään vain halutut metatiedot ja linkkiä painamalla pääsee varsinaiseen reseptiin internet-sivulle (__tehty nykyisessä laajuudessa__)
+- Reseptikirja voi toimia kokonaan tai osittain hallinnointiohjelmistona internetissä oleville resepteille, jolloin reseptiä luodessa täytetään vain halutut metatiedot ja linkkiä painamalla pääsee varsinaiseen reseptiin internet-sivulle (__tehty__)
