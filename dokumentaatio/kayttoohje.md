@@ -9,6 +9,10 @@ Ennen ohjelman käynnistämistä asenna riippuvuudet komennolla:
 
 > poetry install
 
+Suorita sen jälkeen alustustoimenpiteet komennolla:
+
+> poetry run invoke build
+
 Tämän jälkeen ohjelman voi käynnistää komennolla:
 
 > poetry run invoke start
