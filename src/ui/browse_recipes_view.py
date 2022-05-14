@@ -38,7 +38,7 @@ class BrowseRecipesView:
         T = tkinter.Text(master=self._frame)
         text = recipe_names
         T.insert(tkinter.END, text)
-        T.grid(row=5, column=0)
+        T.grid(row=5, column=0, padx=5, pady=5)
 
     def _handle_open(self):
         comment_label = ttk.Label(master=self._frame, text=f"")
@@ -83,9 +83,8 @@ class BrowseRecipesView:
         optionmenu.set("Choose a category")
         drop = tkinter.OptionMenu(self._frame, optionmenu, *options, command=self._handle_category)
 
-        back_button.grid(row=0, column=0)
-        open_label.grid(row=1, column=0)
-        self._name_entry.grid(row=2, column=0)
-        open_button.grid(row=2, column=1)
-
-        drop.grid(row=4, column=0)
+        back_button.grid(row=0, column=0, padx=5, pady=5)
+        open_label.grid(row=1, column=0, padx=5, pady=5)
+        self._name_entry.grid(row=2, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
+        open_button.grid(row=2, column=1, padx=5, pady=5)
+        drop.grid(row=4, column=0, padx=5, pady=5)

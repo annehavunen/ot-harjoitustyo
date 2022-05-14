@@ -37,49 +37,49 @@ class ChangeRecipeView:
     def _handle_changes(self):
         name = self._name_entry.get()
         comment_label = ttk.Label(master=self._frame, text="")
-        comment_label.grid(row=9, column=0, sticky=constants.EW)
+        comment_label.grid(row=0, column=1, sticky=constants.EW)
         if name == "":
             comment_label = ttk.Label(master=self._frame, text="Name cannot be empty.")
-            comment_label.grid(row=9, column=0, sticky=constants.W)
+            comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
         else:
             recipe_id = self.recipe_service.get_recipe_id(name)
             if recipe_id is not None:
                 if self.remove.get() == 1:
                     self.recipe_service.remove_recipe(name)
                     comment_label = ttk.Label(master=self._frame, text="Recipe removed.")
-                    comment_label.grid(row=9, column=0, sticky=constants.W)
+                    comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                 else:
                     if self.change_url.get() == 0 and self.change_name.get() == 0:
                         comment_label = ttk.Label(master=self._frame, text="Choose what changes you want to make.")
-                        comment_label.grid(row=9, column=0, sticky=constants.W)
+                        comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                     elif self.change_url.get() == 1 and self.change_name.get() == 0:
                         new_url = self._new_url_entry.get()
                         self.recipe_service.change_url(name, new_url)              
                         comment_label = ttk.Label(master=self._frame, text="URL changed.")
-                        comment_label.grid(row=9, column=0, sticky=constants.W)
+                        comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                     else:
                         new_name = self._new_name_entry.get()
                         recipe_id = self.recipe_service.get_recipe_id(new_name)
                         if new_name == "":
                             comment_label = ttk.Label(master=self._frame, text="New name cannot be empty. Please change the name.")
-                            comment_label.grid(row=9, column=0, sticky=constants.W)
+                            comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                         elif recipe_id is not None:
-                            comment_label = ttk.Label(master=self._frame, text=f"Name '{new_name}' exists already. Please change the name.")
-                            comment_label.grid(row=9, column=0, sticky=constants.W)                            
+                            comment_label = ttk.Label(master=self._frame, text=f"New name '{new_name}' exists already. Please change the name.")
+                            comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                         else:
                             if self.change_url.get() == 0 and self.change_name.get() == 1:
                                 self.recipe_service.change_name(name, new_name)
                                 comment_label = ttk.Label(master=self._frame, text="Name changed.")
-                                comment_label.grid(row=9, column=0, sticky=constants.W)
+                                comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                             else:
                                 new_url = self._new_url_entry.get()
                                 self.recipe_service.change_url(name, new_url)
                                 self.recipe_service.change_name(name, new_name)
                                 comment_label = ttk.Label(master=self._frame, text="Name and URL changed.")
-                                comment_label.grid(row=9, column=0, sticky=constants.W)
+                                comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
             else:
                 comment_label = ttk.Label(master=self._frame, text=f"Recipe called '{name}' cannot be found.")
-                comment_label.grid(row=9, column=0, sticky=constants.W)
+                comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
@@ -122,21 +122,19 @@ class ChangeRecipeView:
             command=self._handle_changes
         )
 
-        back_button.grid(row=0, column=0)
-        change_label.grid(row=1, column=0)
-        self._name_entry.grid(row=1, column=1, sticky=(constants.E, constants.W))
+        back_button.grid(row=0, column=0, padx=5, pady=5)
+        change_label.grid(row=1, column=0, padx=5, pady=5)
+        self._name_entry.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5)
 
-        change_name_box.grid(row=3, column=0, sticky=constants.W)
-        new_name_label.grid(row=4, column=0, sticky=constants.W)
-        self._new_name_entry.grid(row=4, column=1, sticky=(constants.E, constants.W))
+        change_name_box.grid(row=3, column=0, sticky=constants.W, padx=5, pady=(5, 0))
+        new_name_label.grid(row=4, column=0, sticky=constants.W, padx=5)
+        self._new_name_entry.grid(row=4, column=1, sticky=(constants.E, constants.W), padx=5)
 
-        change_url_box.grid(row=5, column=0, sticky=constants.W)
-        new_url_label.grid(row=6, column=0, sticky=constants.W)
-        self._new_url_entry.grid(row=6, column=1, sticky=(constants.W, constants.E))
+        change_url_box.grid(row=5, column=0, sticky=constants.W, padx=5, pady=(5, 0))
+        new_url_label.grid(row=6, column=0, sticky=constants.W, padx=5)
+        self._new_url_entry.grid(row=6, column=1, sticky=(constants.W, constants.E), padx=5)
 
-        remove_box.grid(row=7, column=0, sticky=constants.W)
-        save_changes.grid(row=8, column=0)        
+        remove_box.grid(row=7, column=0, sticky=constants.W, padx=5, pady=5)
+        save_changes.grid(row=8, column=0, padx=5, pady=5)
 
-#        self._frame.grid_columnconfigure(1, weight=1, minsize=300) # ei näytä hyvältä
-#        self._frame.grid_columnconfigure(0, weight=1, minsize=300) # ei
-#        self._frame.grid_columnconfigure(1, weight=1)
+        self._frame.grid_columnconfigure(1, weight=1, minsize=300)

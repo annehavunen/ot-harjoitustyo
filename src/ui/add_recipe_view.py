@@ -44,7 +44,7 @@ class AddRecipeView:
         recipe_name = self._name_entry.get()
         if recipe_name == "":
             comment_label = ttk.Label(master=self._frame, text="Name must be at least one character long.")
-            comment_label.grid(row=14, column=0, sticky=constants.W)
+            comment_label.grid(row=14, column=0, sticky=constants.W, padx=5, pady=5)
         else:
             recipe_url = self._url_entry.get()
             recipe_id = self.recipe_service.add_recipe(recipe_name, recipe_url)
@@ -52,10 +52,10 @@ class AddRecipeView:
                 categories = self._handle_categories()
                 self.recipe_service.add_categories(recipe_id, categories)
                 comment_label = ttk.Label(master=self._frame, text=f"Recipe '{recipe_name}' added! Return with Back.")
-                comment_label.grid(row=14, column=0, sticky=constants.W)
+                comment_label.grid(row=14, column=0, sticky=constants.W, padx=5, pady=5)
             else:
                 comment_label = ttk.Label(master=self._frame, text=f"Recipe with the name '{recipe_name}' exists already.")
-                comment_label.grid(row=14, column=0, sticky=constants.W)
+                comment_label.grid(row=14, column=0, sticky=constants.W, padx=5, pady=5)
 
     def _handle_categories(self):
         categories = ""
@@ -85,9 +85,9 @@ class AddRecipeView:
             command=self._handle_back
         )
 
-        name_label = ttk.Label(master=self._frame, text="Name of the recipe")
+        name_label = ttk.Label(master=self._frame, text="Name of the recipe:")
         self._name_entry = ttk.Entry(master=self._frame)
-        url_label = ttk.Label(master=self._frame, text="URL of the recipe")
+        url_label = ttk.Label(master=self._frame, text="URL of the recipe:")
         self._url_entry = ttk.Entry(master=self._frame)
 
         categories_label = ttk.Label(master=self._frame, text="Choose the categories of the recipe:")
@@ -139,17 +139,19 @@ class AddRecipeView:
             command=self._handle_create
         )
 
-        back_button.grid(row=0, column=0)
-        name_label.grid(row=1, column=0, sticky=constants.W)
-        self._name_entry.grid(row=2, column=0, sticky=constants.W)
-        url_label.grid(row=3, column=0, sticky=constants.W)
-        self._url_entry.grid(row=4, column=0, sticky=constants.W)
-        categories_label.grid(row=5, column=0)
-        checkbox1.grid(row=6, column=0, sticky=constants.W)
-        checkbox2.grid(row=7, column=0, sticky=constants.W)
-        checkbox3.grid(row=8, column=0, sticky=constants.W)
-        checkbox4.grid(row=9, column=0, sticky=constants.W)
-        checkbox5.grid(row=10, column=0, sticky=constants.W)
-        checkbox6.grid(row=11, column=0, sticky=constants.W)
-        checkbox7.grid(row=12, column=0, sticky=constants.W)
-        create.grid(row=13, column=0)        
+        back_button.grid(row=0, column=0, padx=5, pady=5)
+        name_label.grid(row=1, column=0, sticky=constants.W, padx=5, pady=5)
+        self._name_entry.grid(row=2, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
+        url_label.grid(row=3, column=0, sticky=constants.W, padx=5, pady=5)
+        self._url_entry.grid(row=4, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
+        categories_label.grid(row=5, column=0, padx=5, pady=5)
+        checkbox1.grid(row=6, column=0, sticky=constants.W, padx=5)
+        checkbox2.grid(row=7, column=0, sticky=constants.W, padx=5)
+        checkbox3.grid(row=8, column=0, sticky=constants.W, padx=5)
+        checkbox4.grid(row=9, column=0, sticky=constants.W, padx=5)
+        checkbox5.grid(row=10, column=0, sticky=constants.W, padx=5)
+        checkbox6.grid(row=11, column=0, sticky=constants.W, padx=5)
+        checkbox7.grid(row=12, column=0, sticky=constants.W, padx=5)
+        create.grid(row=13, column=0, padx=5, pady=5)
+
+        self._frame.grid_columnconfigure(0, weight=1, minsize=300)

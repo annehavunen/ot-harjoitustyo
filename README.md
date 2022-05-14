@@ -13,6 +13,8 @@ Reseptejä pystyy hakemaan kategorioittain.
 
 - [Arkkitehtuurikuvaus](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+- [Testausdokumentti](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 - [Työaikakirjanpito](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 - [Changelog](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
