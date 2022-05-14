@@ -14,7 +14,7 @@ Käyttäjä voi selata reseptejä kategorioiden mukaan ja avata reseptin verkkos
 - Käyttäjä voi poistaa reseptin tai muuttaa sen nimeä tai osoitetta
 
 ## Jatkokehitysideoita
-- Reseptejä voi myös itse kirjoittaa
+- Reseptejä voi myös itse kirjoittaa reseptien ohjeita
 - Reseptejä selatessa voi valita useamman kategorian kerralla
-- Reseptien selailu aakkosjärjestyksessä
+- Reseptejä voi selailla aakkosjärjestyksessä
 - Reseptien kategorioita voi muuttaa

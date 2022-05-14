@@ -35,6 +35,7 @@ class ChangeRecipeView:
         self._frame.destroy()
 
     def _handle_changes(self):
+        """Käsittelee käyttäjän valitsemat muutokset."""
         name = self._name_entry.get()
         comment_label = ttk.Label(master=self._frame, text="")
         comment_label.grid(row=0, column=1, sticky=constants.EW)

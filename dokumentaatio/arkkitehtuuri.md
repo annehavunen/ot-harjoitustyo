@@ -47,3 +47,21 @@ Tämän jälkeen käyttöjärjestelmä antaa reseptin kategoriat RecipeServicell
 RecipeService luo kategoriat yksi kerrallaan, jonka jälkeen
 RecipeRepository tallentaa ne tietokantaan
 ja yhdistää reseptin sekä kategorian id:t toisiinsa.
+
+### Reseptien selailu
+
+Kun käyttäjä painaa Browse recipes -painiketta, etenee sovelluslogiikka seuraavasti:
+
+![sekvenssi-reseptien-selailu](./kuvat/sekvenssi-reseptien-selailu.png)
+
+Käyttöliittymä välittää käyttäjän valitseman kategorian RecipeServicelle.
+joka välittää sen edelleen RecipeRepositorylle.
+RecipeRepository palauttaa kaikkien kyseiseen kategoriaan liitettyjen reseptien nimet.
+Mikäli käyttäjä olisi valinnut "show all", palauttaisi RecipeRepository RecipeServicen pyynnöstä kaikki tallennetut reseptit.
+RecipeService palauttaa viimein nimet listana käyttöliittymälle, joka tulostaa reseptit.
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+### Käyttöliittymä
+
+Graafisen käyttöliittymän koodissa on muutamia pitkiä metodeja, joiden toiminnallisuutta voisi jakaa pienempiin osiin.

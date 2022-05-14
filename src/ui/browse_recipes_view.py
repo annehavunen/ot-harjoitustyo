@@ -30,6 +30,7 @@ class BrowseRecipesView:
         self._frame.destroy()
 
     def _handle_category(self, selection):
+        """Tulostaa reseptit valitusta kategoriasta."""
         recipes = self.recipe_service.list_by_category(selection)
 
         recipe_names = ""
