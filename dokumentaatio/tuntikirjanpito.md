@@ -117,8 +117,11 @@
   - Käyttöliittymän ulkoasun muotoilua
 
 ### 14.5.2022
-- Työtunnit
+- Työtunnit 8
 - Mitä tein
-  -
+  - Konfiguraatiotiedostojen luonti
+  - Testausdokumentin luonti
+  - Muun dokumentaation päivittämistä
+  - Käyttöliittymän ulkoasun muotoilua
 
-### Työtunnit yhteensä: 72
+### Työtunnit yhteensä: 80

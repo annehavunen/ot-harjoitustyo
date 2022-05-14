@@ -31,8 +31,16 @@
 
 ## Viikko 6
 
-- Käyttöliittymä muutettu graafiseksi. Toteutusta ei ole vielä hiottu.
+- Käyttöliittymä muutettu graafiseksi.
 - Nostettu testikattavuutta
 - Aloitettu docstring-dokumentointi
 - Luotu ohjelmalle alustava käyttöohje
 - Täydennetty yleisesti dokumentaatiota
+
+## Viikko 7
+
+- Käyttöliittymän ulkoasua hiottu.
+- Nostettu testikattavuutta
+- Täydennetty docstring-dokumentointia
+- Luotu testausdokumentti
+- Luotu konfiguraatiotiedostot
