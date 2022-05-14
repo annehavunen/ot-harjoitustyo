@@ -9,6 +9,6 @@ joiden nimet on konfiguroitu tiedostoon *.env.test*.
 
 Testauksen haarautumakattavuus on 96%. Käyttöliittymäkerros on jätetty testauksesta pois.
 
-![testauskattavuus](./kuvat/testikattavuus.png
+![testauskattavuus](./kuvat/testikattavuus.png)
 
 ## Järjestelmätestaus
