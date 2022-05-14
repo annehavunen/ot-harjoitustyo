@@ -60,6 +60,20 @@ RecipeRepository palauttaa kaikkien kyseiseen kategoriaan liitettyjen reseptien 
 Mikäli käyttäjä olisi valinnut "show all", palauttaisi RecipeRepository RecipeServicen pyynnöstä kaikki tallennetut reseptit.
 RecipeService palauttaa viimein nimet listana käyttöliittymälle, joka tulostaa reseptit.
 
+### Reseptien muuttaminen
+
+Käyttäjän painettua "Change a recipe" etenee sovelluslogiikka seuraavasti:
+
+![sekvenssi-reseptin-muuttaminen](./kuvat/sekvenssi-reseptin-muuttaminen.png)
+
+Käyttöliittymä pyytää RecipeServiceä hakemaan reseptin id:n RecipeRepositorysta.
+Samalla se selvittää, onko varmasti olemassa sen niminen resepti, jota käyttäjä yrittää muuttaa.
+Esimerkissä käyttäjä on valinnut muuttaa reseptin nimeä.
+Käyttöliittymä pyytää reseptin id:tä uudella nimellä ja varmistaa tällä tavalla, ettei saman nimistä reseptiä ole jo olemassa.
+Kun kaikki on kunnossa, käyttöliittymä lähettää vanhan ja uuden reseptin nimen RecipeServicelle.
+RecipeService pyytää vielä uudelleen vanhan reseptin id:n,
+ja RecipeRepository muuttaa nimen uudeksi id:n perusteella.
+
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
 ### Käyttöliittymä
