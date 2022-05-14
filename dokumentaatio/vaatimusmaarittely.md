@@ -6,7 +6,7 @@ Sovelluksen avulla käyttäjän on mahdollista hallinnoida valitsemiaan internet
 Käyttäjä kirjoittaa reseptin nimen ja URL-osoitteen ja sijoittaa sen sopiviin kategorioihin.
 Käyttäjä voi selata reseptejä kategorioiden mukaan ja avata reseptin verkkosivun kirjoittamalla reseptin nimen.
 
-## Perusversion suunnitellut toiminnallisuudet
+## Perusversion toiminnallisuudet
 - Käyttäjä voi lisätä reseptin
   - Reseptiin liittyy nimi, URL-osoite sekä kategoriat
 - Käyttäjä voi selata lisäämiään reseptejä kategorian perusteella
