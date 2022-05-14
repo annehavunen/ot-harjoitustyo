@@ -80,7 +80,7 @@ class RecipeService:
             name = "desserts"
         elif number == 6:
             name = "baking"
-        elif number == 7:
+        else:
             name = "other"
         category = Category(name)
         category_id = self.repository.add_category(category)

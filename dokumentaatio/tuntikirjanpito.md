@@ -109,4 +109,16 @@
   - Käyttöohjeen luominen
   - Muuta dokumentaation täydentämistä
 
+### 13.5.2022
+- Työtunnit 2
+- Mitä tein
+  - Testien viimeistely
+  - Dokumentaation päivittämistä
+  - Käyttöliittymän ulkoasun muotoilua
+
+### 14.5.2022
+- Työtunnit
+- Mitä tein
+  -
+
 ### Työtunnit yhteensä: 72

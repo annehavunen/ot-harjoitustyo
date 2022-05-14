@@ -91,7 +91,7 @@ class ChangeRecipeView:
             command=self._handle_back
         )
 
-        change_label = ttk.Label(master=self._frame, text="Write the name of the recipe you want to change:")
+        change_label = ttk.Label(master=self._frame, text="Name of the recipe \nyou want to change:")
         self._name_entry = ttk.Entry(master=self._frame)
 
         change_name_box = ttk.Checkbutton(master=self._frame,
@@ -124,15 +124,19 @@ class ChangeRecipeView:
 
         back_button.grid(row=0, column=0)
         change_label.grid(row=1, column=0)
-        self._name_entry.grid(row=2, column=0, sticky=constants.W)
+        self._name_entry.grid(row=1, column=1, sticky=(constants.E, constants.W))
 
         change_name_box.grid(row=3, column=0, sticky=constants.W)
         new_name_label.grid(row=4, column=0, sticky=constants.W)
-        self._new_name_entry.grid(row=4, column=1)
+        self._new_name_entry.grid(row=4, column=1, sticky=(constants.E, constants.W))
 
         change_url_box.grid(row=5, column=0, sticky=constants.W)
         new_url_label.grid(row=6, column=0, sticky=constants.W)
-        self._new_url_entry.grid(row=6, column=1)
+        self._new_url_entry.grid(row=6, column=1, sticky=(constants.W, constants.E))
 
         remove_box.grid(row=7, column=0, sticky=constants.W)
         save_changes.grid(row=8, column=0)        
+
+#        self._frame.grid_columnconfigure(1, weight=1, minsize=300) # ei näytä hyvältä
+#        self._frame.grid_columnconfigure(0, weight=1, minsize=300) # ei
+#        self._frame.grid_columnconfigure(1, weight=1)

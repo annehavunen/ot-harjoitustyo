@@ -17,12 +17,14 @@ class TestRecipeService(unittest.TestCase):
         self.assertEqual(len(recipes), 1)
         self.assertEqual(recipes[0].name, self.cheesecake.name)
         self.assertEqual(recipes[0].url, self.cheesecake.url)
+        recipe_id = self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
+        self.assertEqual(None, recipe_id)
 
     def test_add_categories(self):
         recipe_id = self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
-        self.service.add_categories(recipe_id, "112A")
+        self.service.add_categories(recipe_id, "112345678A")
         categories = self.service.get_categories()
-        self.assertEqual(len(categories), 2)
+        self.assertEqual(len(categories), 7)
 
     def test_add_category(self):
         self.service.add_category(1)
@@ -47,19 +49,38 @@ class TestRecipeService(unittest.TestCase):
         name = self.service.get_recipe_name(recipe_id)
         self.assertEqual(name, "new name")
     
-    def test_list_all(self):
+    def test_list_by_category(self):
         recipe_id = self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
+        self.service.add_categories(recipe_id, "6")
+        recipes = self.service.list_by_category("baking")
+        self.assertEqual(len(recipes), 1)
+        recipes = self.service.list_by_category("show all")
+        self.assertEqual(len(recipes), 1)
+    
+    def test_list_all(self):
+        self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
         recipes = self.service.list_all()
         self.assertEqual(len(recipes), 1)
 
     def test_remove_recipe(self):
-        self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
+        recipe_id = self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
+        self.service.add_categories(recipe_id, "6")
         self.service.remove_recipe(self.cheesecake.name)
         recipes = recipe_repository.find_all()
         self.assertEqual(len(recipes), 0)
+        categories = self.service.get_categories()
+        self.assertEqual(len(categories), 0)
     
     def test_remove_category(self):
         category_id = self.service.add_category(1)
         self.service.remove_category(category_id)
         categories = self.service.get_categories()
         self.assertEqual(len(categories), 0)
+
+    def test_remove_recipe_category(self):
+        recipe_id = self.service.add_recipe(self.cheesecake.name, self.cheesecake.url)
+        self.service.add_categories(recipe_id, "6")
+        category_ids = self.service.get_category_ids(recipe_id)
+        self.service.remove_recipe_category(recipe_id, category_ids[0])
+        recipe_categories = self.service.get_recipe_categories()
+        self.assertEqual(len(recipe_categories), 0)

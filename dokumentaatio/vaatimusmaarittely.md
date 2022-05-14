@@ -2,14 +2,9 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen avulla käyttäjän on mahdollista luoda oma reseptikirjansa.
-Reseptit kirjoitetaan itse valmiisiin reseptipohjiin. Ne sijoitetaan eri kategorioihin, ja niitä on mahdollista selata ja hakea erilaisin perustein.
-Sovelluksella on mahdollisesti vain yksi käyttäjä ilman rekisteröitymistä, mutta tämä on vielä harkinnan alla.
-
-## Käyttäjät
-
-Sovelluksessa on yksi käyttäjärooli eli normaali käyttäjä.
-Suuremmilla oikeuksilla varustettua pääkäyttäjää ei todennäköisesti tule.
+Sovelluksen avulla käyttäjän on mahdollista hallinnoida valitsemiaan internetissä olevia reseptejä.
+Käyttäjä kirjoittaa reseptin nimen ja URL-osoitteen ja sijoittaa sen sopiviin kategorioihin.
+Käyttäjä voi selata reseptejä kategorioiden mukaan ja avata reseptin verkkosivun kirjoittamalla reseptin nimen.
 
 ## Perusversion suunnitellut toiminnallisuudet
 - Uutta reseptiä luodessa aukeaa käyttäjälle valmis pohja reseptin kirjoittamista varten (__tehty nykyisessä laajuudessa__)
