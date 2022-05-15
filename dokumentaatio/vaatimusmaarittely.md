@@ -10,6 +10,7 @@ Käyttäjä voi selata reseptejä kategorioiden mukaan ja avata reseptin verkkos
 - Käyttäjä voi lisätä reseptin
   - Reseptiin liittyy nimi, URL-osoite sekä kategoriat
   - Nimen pitää olla vähintään 1 merkkiä pitkä ja uniikki
+  - Kategorioita voi olla nolla tai useampi
   - URL-osoitteen saa jättää tyhjäksi. Jos sovellusta laajentaa niin, että käyttäjä voi itse kirjoittaa reseptejä, voisi osoiterivi jäädä silloinkin tyhjäksi
 - Käyttäjä voi selata lisäämiään reseptejä kategorian perusteella
 - Käyttäjä voi avata reseptiin liittämänsä verkkosivun
