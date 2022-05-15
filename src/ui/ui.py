@@ -1,6 +1,4 @@
 from ui.change_recipe_view import ChangeRecipeView
-from ui.change_web_recipe_view import ChangeWebRecipeView
-from ui.change_written_recipe_view import ChangeWrittenRecipeView
 from ui.main_view import MainView
 from ui.add_recipe_view import AddRecipeView
 from ui.browse_recipes_view import BrowseRecipesView
