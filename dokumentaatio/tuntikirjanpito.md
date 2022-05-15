@@ -125,4 +125,10 @@
   - Muun dokumentaation päivittämistä
   - Käyttöliittymän ulkoasun muotoilua
 
-### Työtunnit yhteensä: 81
+### 15.5.2022
+- Työtunnit 2
+- Mitä tein
+  - Dokumentaation päivitys
+  - Koodin hienosäätöä
+
+### Työtunnit yhteensä: 83
