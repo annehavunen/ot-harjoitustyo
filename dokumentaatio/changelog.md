@@ -40,7 +40,7 @@
 ## Viikko 7
 
 - Luotu konfiguraatiotiedostot
+- Luotu testausdokumentti
 - Käyttöliittymän ulkoasua hiottu.
 - Nostettu testikattavuutta
 - Täydennetty docstring-dokumentointia
-- Luotu testausdokumentti
