@@ -7,7 +7,7 @@ RecipeRepository vastaa tiedon pysyväistallennuksesta, ja sitä testataan luoka
 Testaaminen tapahtuu ainoastaan testeihin tarkoitetuilla tiedostoilla,
 joiden nimet on konfiguroitu tiedostoon *.env.test*.
 
-Testauksen haarautumakattavuus on 96%. Käyttöliittymäkerros on jätetty testauksesta pois.
+Testauksen haarautumakattavuus on 94%. Käyttöliittymäkerros on jätetty testauksesta pois.
 
 ![testauskattavuus](./kuvat/testikattavuus.png)
 
