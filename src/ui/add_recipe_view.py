@@ -208,10 +208,6 @@ class AddRecipeView:
         checkbox7.grid(row=10, column=0, sticky=constants.W, padx=5)
 
         drop.grid(row=11, column=0, padx=5, pady=5)
-#        url_label.grid(row=3, column=0, sticky=constants.W, padx=5, pady=5)
-#        self._url_entry.grid(row=4, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-
         create.grid(row=15, column=0, padx=5, pady=5)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=300)

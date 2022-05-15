@@ -97,3 +97,6 @@ jonka jälkeen RecipeRepository muuttaa nimen uudeksi id:n perusteella.
 
 Graafisen käyttöliittymän koodissa on paikoitellen pitkiä metodeja, joiden toiminnallisuutta voisi jakaa pienempiin osiin.
 Käyttöliittymässä on myös jonkin verran toisteisuutta.
+
+Reseptien muuttamisesta vastaavassa näkymä ei toimi ideaalisella tavalla,
+mikäli käyttäjä muuttaa monta kertaa saman reseptin nimeä.
