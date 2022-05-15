@@ -71,7 +71,7 @@ class TestRecipeRepository(unittest.TestCase):
     def test_change_name(self):
         recipe_repository.add_recipe(self.cheesecake)
         recipe_id = recipe_repository.get_recipe_id(self.cheesecake.name)
-        recipe_repository.change_name("new name", recipe_id)
+        recipe_repository.change_name(recipe_id, "new name")
         name = recipe_repository.get_recipe_name(recipe_id)
         self.assertEqual(name, "new name")
 

@@ -131,4 +131,4 @@
   - Dokumentaation päivitys
   - Koodin hienosäätöä
 
-### Työtunnit yhteensä: 83
+### Työtunnit yhteensä: 85
