@@ -124,6 +124,12 @@ class RecipeService:
         self._repository.change_name(recipe_id, new_name)
 
     def change_directions(self, name, new_directions):
+        """Muuttaa reseptin ohjetta.
+
+        Args:
+            name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
+            new_directions: Merkkijonoarvo, joka kuvaa reseptin uutta ohjetta.
+        """
         self._repository.change_directions(name, new_directions)
 
     def list_by_category(self, name):

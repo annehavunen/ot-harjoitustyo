@@ -183,14 +183,20 @@ class RecipeRepository:
         """Muuttaa reseptin nimeä.
 
         Args:
-            new_name: Merkkijonoarvo, joka kuvaa reseptin uutta nimeä.
             recipe_id: Integer-arvo, joka kuvaa reseptin id-tunnusta.
+            new_name: Merkkijonoarvo, joka kuvaa reseptin uutta nimeä.
         """
         cursor = self._connection.cursor()
         cursor.execute(
             "UPDATE Recipe SET name = (?) WHERE id = (?)", (new_name, recipe_id))
 
     def change_directions(self, name, new_directions):
+        """Muuttaa reseptin ohjetta.
+
+        Args:
+            name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
+            new_directions: Merkkijonoarvo, joka kuvaa reseptin uutta ohjetta.
+        """
         cursor = self._connection.cursor()
         cursor.execute(
             "UPDATE Recipe SET directions = (?) WHERE name = (?)", (new_directions, name))
