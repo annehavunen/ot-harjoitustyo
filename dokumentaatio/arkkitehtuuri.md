@@ -10,6 +10,20 @@ Pakkaus ui sisältää käyttöliittymästä vastaavan koodin.
 Services sisältää sovelluslogiikasta ja repositories tiedon pysyväistallennuksesta vastaavan koodin.
 Pakkauksessa entities on sovelluksen käyttämiä tietokohteita kuvastavat luokat.
 
+## Käyttöliittymä
+
+Käyttöliittymä sisältää neljä eri näkymää:
+
+- Päävalikko
+- Reseptin lisääminen
+- Reseptien selaaminen
+- Reseptin muuttaminen tai poistaminen
+
+Näkymät on toteutettu omina luokkinaan ja yksi on aina kerrallaan näkyvissä.
+UI-luokka vastaa siitä, mikä näkymä on kulloinkin esillä.
+Käyttöliittymä kutsuu ainoastaan [RecipeService](https://github.com/annehavunen/ot-harjoitustyo/blob/master/src/services/recipe_service.py)-luokan metodeja,
+ja se on pyritty eristämään sovelluslogiikasta.
+
 ## Sovelluslogiikka
 
 Sovelluksen looginen malli perustuu luokkiin Recipe ja Category
