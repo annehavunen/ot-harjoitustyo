@@ -23,7 +23,7 @@ class RecipeService:
         self._repository = recipe_repository
         self._printer = PrintCommands()
 
-    def add_recipe(self, name, url):
+    def add_recipe(self, name, url, directions):
         """Luo uuden reseptin.
 
         Args:
@@ -35,7 +35,7 @@ class RecipeService:
         """
         recipe_id = self._repository.get_recipe_id(name)
         if not recipe_id:
-            recipe = Recipe(name, url)
+            recipe = Recipe(name, url, directions)
             recipe_id = self._repository.add_recipe(recipe)
             return recipe_id
         return None
@@ -101,7 +101,7 @@ class RecipeService:
         Args:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
         """
-        url = self._repository.get_url(name)
+        url = self._repository.get_recipe_url(name)
         webbrowser.open(url)
 
     def change_url(self, name, new_url):
@@ -122,6 +122,9 @@ class RecipeService:
             new_name: Merkkijonoarvo, joka kuvaa reseptin uutta nimeä.
         """
         self._repository.change_name(recipe_id, new_name)
+
+    def change_directions(self, name, new_directions):
+        self._repository.change_directions(name, new_directions)
 
     def list_by_category(self, name):
         """Palauttaa valitun kategorian reseptit.
@@ -209,9 +212,12 @@ class RecipeService:
         return self._repository.get_recipe_categories()
 
     def get_url(self, name):
-        return self._repository.get_url(name)
+        return self._repository.get_recipe_url(name)
 
     def get_recipe_name(self, recipe_id):
         return self._repository.get_recipe_name(recipe_id)
+
+    def get_recipe_directions(self, name):
+        return self._repository.get_recipe_directions(name)
 
 recipe_service = RecipeService()

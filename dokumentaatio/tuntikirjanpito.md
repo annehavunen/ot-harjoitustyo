@@ -126,9 +126,10 @@
   - Käyttöliittymän ulkoasun muotoilua
 
 ### 15.5.2022
-- Työtunnit 2
+- Työtunnit 10
 - Mitä tein
+  - Käyttäjä voi kirjoittaa itse reseptin ja muokata sitä
+  - Kokonaisuuden muokkaaminen lisättyä toimintoa vastaavaksi
   - Dokumentaation päivitys
-  - Koodin hienosäätöä
 
-### Työtunnit yhteensä: 85
+### Työtunnit yhteensä: 93

@@ -24,8 +24,8 @@ class RecipeRepository:
         """
         cursor = self._connection.cursor()
         added = cursor.execute(
-            "INSERT INTO Recipe (name, url) VALUES (?, ?)",
-            (recipe.name, recipe.url))
+            "INSERT INTO Recipe (name, url, directions) VALUES (?, ?, ?)",
+            (recipe.name, recipe.url, recipe.directions))
         return added.lastrowid
 
     def add_category(self, category):
@@ -83,7 +83,7 @@ class RecipeRepository:
         rows = cursor.fetchall()
         return [row[0] for row in rows]
 
-    def get_url(self, name):
+    def get_recipe_url(self, name):
         """Palauttaa URL-osoitteen nimen perusteella.
 
         Args:
@@ -190,6 +190,11 @@ class RecipeRepository:
         cursor.execute(
             "UPDATE Recipe SET name = (?) WHERE id = (?)", (new_name, recipe_id))
 
+    def change_directions(self, name, new_directions):
+        cursor = self._connection.cursor()
+        cursor.execute(
+            "UPDATE Recipe SET directions = (?) WHERE name = (?)", (new_directions, name))
+
     def find_all(self):
         """Palauttaa kaikki reseptit.
 
@@ -199,7 +204,7 @@ class RecipeRepository:
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM Recipe")
         rows = cursor.fetchall()
-        return [Recipe(row["name"], row["url"]) for row in rows]
+        return [Recipe(row["name"], row["url"], row["directions"]) for row in rows]
 
     def get_categories(self):
         cursor = self._connection.cursor()
@@ -216,6 +221,11 @@ class RecipeRepository:
     def get_recipe_name(self, recipe_id):
         cursor = self._connection.cursor()
         recipe = cursor.execute("SELECT name FROM Recipe WHERE id = (?)", [recipe_id]).fetchone()
+        return recipe[0]
+
+    def get_recipe_directions(self, name):
+        cursor = self._connection.cursor()
+        recipe = cursor.execute("SELECT directions FROM Recipe WHERE name = (?)", [name]).fetchone()
         return recipe[0]
 
 recipe_repository = RecipeRepository(get_database_connection())

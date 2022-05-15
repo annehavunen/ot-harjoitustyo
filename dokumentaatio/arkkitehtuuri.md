@@ -49,8 +49,11 @@ Reseptien ja kategorioiden id:t saadaan yhteyteen Recipe_category-taulun avulla.
 
 ### Reseptin luominen
 
-Ensin käyttäjä valitsee luoda uuden reseptin ja kirjoittaa kenttiin reseptin nimen, verkko-osoitteen ja haluamansa kategoriat.
-Sen jälkeen sovelluksen logiikka etenee seuraavasti:
+Ensin käyttäjä valitsee luoda uuden reseptin.
+Reseptille kirjoitetaan nimi sekä valitaan, mitkä kategoriat reseptiin liittyvät,
+ja liittyykö reseptiin verkko-osoite vai itse kirjoitettu ohje.
+Esimerkkitapauksessa reseptiin liittyy URL-osoite.
+Sovelluksen logiikka etenee seuraavasti:
 
 ![sekvenssi-reseptin-lisaaminen](./kuvat/sekvenssi-reseptin-lisaaminen.png)
 
@@ -73,6 +76,7 @@ joka välittää sen edelleen RecipeRepositorylle.
 RecipeRepository palauttaa kaikkien kyseiseen kategoriaan liitettyjen reseptien nimet.
 Mikäli käyttäjä olisi valinnut "show all", palauttaisi RecipeRepository RecipeServicen pyynnöstä kaikki tallennetut reseptit.
 RecipeService palauttaa viimein nimet listana käyttöliittymälle, joka tulostaa reseptit.
+Näkymässä on myös mahdollista avata joko reseptiin liittyvän verkkosivun tai ohjeen.
 
 ### Reseptien muuttaminen
 
@@ -82,7 +86,7 @@ Käyttäjän painettua "Change a recipe" etenee sovelluslogiikka seuraavasti:
 
 Käyttöliittymä pyytää RecipeServiceä hakemaan reseptin id:n RecipeRepositorysta.
 Samalla se selvittää, onko varmasti olemassa sen niminen resepti, jota käyttäjä yrittää muuttaa.
-Esimerkissä käyttäjä on valinnut muuttaa reseptin nimeä.
+Esimerkkikuvassa muutetaan reseptin nimeä.
 Käyttöliittymä pyytää reseptin id:tä uudella nimellä ja varmistaa tällä tavalla, ettei saman nimistä reseptiä ole jo olemassa.
 Kun kaikki on kunnossa, käyttöliittymä lähettää alkuperäisen id:n ja uuden reseptin nimen RecipeServicelle,
 jonka jälkeen RecipeRepository muuttaa nimen uudeksi id:n perusteella.
@@ -91,4 +95,5 @@ jonka jälkeen RecipeRepository muuttaa nimen uudeksi id:n perusteella.
 
 ### Käyttöliittymä
 
-Graafisen käyttöliittymän koodissa on muutamia pitkiä metodeja, joiden toiminnallisuutta voisi jakaa pienempiin osiin.
+Graafisen käyttöliittymän koodissa on paikoitellen pitkiä metodeja, joiden toiminnallisuutta voisi jakaa pienempiin osiin.
+Käyttöliittymässä on myös jonkin verran toisteisuutta.

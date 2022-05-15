@@ -39,8 +39,9 @@
 
 ## Viikko 7
 
+- Käyttäjä voi kirjoittaa itse reseptin ja muokata sitä
 - Luotu konfiguraatiotiedostot
 - Luotu testausdokumentti
-- Käyttöliittymän ulkoasua hiottu.
+- Käyttöliittymän ulkoasua hiottu
 - Nostettu testikattavuutta
 - Täydennetty docstring-dokumentointia

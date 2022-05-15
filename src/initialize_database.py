@@ -35,7 +35,8 @@ def create_tables(connection):
         CREATE TABLE Recipe (
             id INTEGER PRIMARY KEY,
             name TEXT,
-            url TEXT
+            url TEXT,
+            directions TEXT
         );
     ''')
 

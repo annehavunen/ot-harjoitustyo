@@ -29,27 +29,39 @@ class BrowseRecipesView:
         """Tuhoaa näkymän."""
         self._frame.destroy()
 
-    def _handle_category(self, selection):
-        """Tulostaa reseptit valitusta kategoriasta."""
-        recipes = self.recipe_service.list_by_category(selection)
-
-        recipe_names = ""
-        for recipe in recipes:
-            recipe_names += recipe + "\n"
-        T = tkinter.Text(master=self._frame)
-        text = recipe_names
-        T.insert(tkinter.END, text)
-        T.grid(row=5, column=0, padx=5, pady=5)
+    def _handle_category_print(self, selection):
+        """Tulostaa reseptit valitusta kategoriasta tai reseptin ohjeen."""
+        if selection != "directions":
+            recipes = self.recipe_service.list_by_category(selection)
+            recipe_names = ""
+            for recipe in recipes:
+                recipe_names += recipe + "\n"
+            recipes_text = tkinter.Text(master=self._frame)
+            text = recipe_names
+            recipes_text.insert(tkinter.END, text)
+            recipes_text.grid(row=5, column=0, padx=5, pady=5)
+        else:
+            name = self._name_entry.get()
+            recipe_directions = self.recipe_service.get_recipe_directions(name)
+            directions_text = tkinter.Text(master=self._frame)
+            text = recipe_directions
+            directions_text.insert(tkinter.END, text)
+            directions_text.grid(row=5, column=0, padx=5, pady=5)
 
     def _handle_open(self):
+        """Avaa reseptin verkkosivun tai itse kirjoitetun ohjeen."""
         comment_label = ttk.Label(master=self._frame, text=f"")
         comment_label.grid(row=3, column=0, sticky=constants.EW)
-        nimi = self._name_entry.get()
-        recipe_id = self.recipe_service.get_recipe_id(nimi)
+        name = self._name_entry.get()
+        recipe_id = self.recipe_service.get_recipe_id(name)
         if recipe_id:
-            self.recipe_service.open_recipe(nimi)
+            recipe_url = self.recipe_service.get_url(name)
+            if recipe_url != "":
+                self.recipe_service.open_recipe(name)
+            else:
+                self._handle_category_print("directions")
         else:
-            comment_label = ttk.Label(master=self._frame, text=f"Can't find recipe called '{nimi}'")
+            comment_label = ttk.Label(master=self._frame, text=f"Can't find recipe called '{name}'")
             comment_label.grid(row=3, column=0)
 
     def _initialize(self):
@@ -82,7 +94,7 @@ class BrowseRecipesView:
             "other"]
 
         optionmenu.set("Choose a category")
-        drop = tkinter.OptionMenu(self._frame, optionmenu, *options, command=self._handle_category)
+        drop = tkinter.OptionMenu(self._frame, optionmenu, *options, command=self._handle_category_print)
 
         back_button.grid(row=0, column=0, padx=5, pady=5)
         open_label.grid(row=1, column=0, padx=5, pady=5)

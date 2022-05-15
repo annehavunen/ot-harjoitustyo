@@ -11,6 +11,9 @@ Testauksen haarautumakattavuus on 96%. Käyttöliittymäkerros on jätetty testa
 
 ![testauskattavuus](./kuvat/testikattavuus.png)
 
+Testaamatta jäivät toiminnot, jotka liittyvät ohjeen liittämiseen reseptiin.
+Nämä olisi syytä sisällyttää testeihin sovelluksen mahdollisessa jatkokehityksessä.
+
 ## Järjestelmätestaus
 
 Sovellus on haettu ja testattu [käyttöohjeessa](https://github.com/annehavunen/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) kuvatulla tavalla.

@@ -7,7 +7,7 @@ import initialize_database
 
 class TestRecipeRepository(unittest.TestCase):
     def setUp(self):
-        self.cheesecake = Recipe("cheese cake", "https://www.valio.fi/reseptit/new-york-cheese-cake/")
+        self.cheesecake = Recipe("cheese cake", "https://www.valio.fi/reseptit/new-york-cheese-cake/", "")
         self.category = Category("baking")
         initialize_database.initialize_database()
 
@@ -18,14 +18,14 @@ class TestRecipeRepository(unittest.TestCase):
         self.assertEqual(recipes[0].name, self.cheesecake.name)
         self.assertEqual(recipes[0].url, self.cheesecake.url)
 
-        dublicate = Recipe("cheese cake", "https://www.arla.fi/reseptit/new-york-cheesecake/")
+        dublicate = Recipe("cheese cake", "https://www.arla.fi/reseptit/new-york-cheesecake/", "")
         recipe_repository.add_recipe(dublicate)
         self.assertEqual(len(recipes), 1)
         self.assertEqual(recipes[0].url, self.cheesecake.url)
 
     def test_get_url(self):
         recipe_repository.add_recipe(self.cheesecake)
-        url = recipe_repository.get_url(self.cheesecake.name)
+        url = recipe_repository.get_recipe_url(self.cheesecake.name)
         self.assertEqual(url, self.cheesecake.url)
 
     def test_add_category(self):
@@ -65,7 +65,7 @@ class TestRecipeRepository(unittest.TestCase):
         recipe_repository.add_recipe(self.cheesecake)
         recipe_id = recipe_repository.get_recipe_id(self.cheesecake.name)
         recipe_repository.change_url("new.address", recipe_id)
-        url = recipe_repository.get_url(self.cheesecake.name)
+        url = recipe_repository.get_recipe_url(self.cheesecake.name)
         self.assertEqual(url, "new.address")
 
     def test_change_name(self):
