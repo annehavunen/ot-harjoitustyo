@@ -114,15 +114,14 @@ class RecipeService:
         recipe_id = self._repository.get_recipe_id(name)
         self._repository.change_url(new_url, recipe_id)
 
-    def change_name(self, name, new_name):
+    def change_name(self, recipe_id, new_name):
         """Muuttaa reseptin nimeä.
 
         Args:
             name: Merkkijonoarvo, joka kuvaa reseptin nimeä.
             new_name: Merkkijonoarvo, joka kuvaa reseptin uutta nimeä.
         """
-        recipe_id = self._repository.get_recipe_id(name)
-        self._repository.change_name(new_name, recipe_id)
+        self._repository.change_name(recipe_id, new_name)
 
     def list_by_category(self, name):
         """Palauttaa valitun kategorian reseptit.

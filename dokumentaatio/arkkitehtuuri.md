@@ -70,9 +70,8 @@ Käyttöliittymä pyytää RecipeServiceä hakemaan reseptin id:n RecipeReposito
 Samalla se selvittää, onko varmasti olemassa sen niminen resepti, jota käyttäjä yrittää muuttaa.
 Esimerkissä käyttäjä on valinnut muuttaa reseptin nimeä.
 Käyttöliittymä pyytää reseptin id:tä uudella nimellä ja varmistaa tällä tavalla, ettei saman nimistä reseptiä ole jo olemassa.
-Kun kaikki on kunnossa, käyttöliittymä lähettää vanhan ja uuden reseptin nimen RecipeServicelle.
-RecipeService pyytää vielä uudelleen vanhan reseptin id:n,
-ja RecipeRepository muuttaa nimen uudeksi id:n perusteella.
+Kun kaikki on kunnossa, käyttöliittymä lähettää alkuperäisen id:n ja uuden reseptin nimen RecipeServicelle,
+jonka jälkeen RecipeRepository muuttaa nimen uudeksi id:n perusteella.
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 

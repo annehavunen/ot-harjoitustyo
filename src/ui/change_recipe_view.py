@@ -60,22 +60,22 @@ class ChangeRecipeView:
                         comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                     else:
                         new_name = self._new_name_entry.get()
-                        recipe_id = self.recipe_service.get_recipe_id(new_name)
+                        new_recipe_id = self.recipe_service.get_recipe_id(new_name)
                         if new_name == "":
                             comment_label = ttk.Label(master=self._frame, text="New name cannot be empty. Please change the name.")
                             comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
-                        elif recipe_id is not None:
+                        elif new_recipe_id is not None:
                             comment_label = ttk.Label(master=self._frame, text=f"New name '{new_name}' exists already. Please change the name.")
                             comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                         else:
                             if self.change_url.get() == 0 and self.change_name.get() == 1:
-                                self.recipe_service.change_name(name, new_name)
+                                self.recipe_service.change_name(recipe_id, new_name)
                                 comment_label = ttk.Label(master=self._frame, text="Name changed.")
                                 comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
                             else:
                                 new_url = self._new_url_entry.get()
                                 self.recipe_service.change_url(name, new_url)
-                                self.recipe_service.change_name(name, new_name)
+                                self.recipe_service.change_name(recipe_id, new_name)
                                 comment_label = ttk.Label(master=self._frame, text="Name and URL changed.")
                                 comment_label.grid(row=0, column=1, sticky=constants.W, padx=5, pady=5)
             else:

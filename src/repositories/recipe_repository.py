@@ -179,7 +179,7 @@ class RecipeRepository:
         cursor = self._connection.cursor()
         cursor.execute("UPDATE Recipe SET url = (?) WHERE id = (?)", (new_url, recipe_id))
 
-    def change_name(self, new_name, recipe_id):
+    def change_name(self, recipe_id, new_name):
         """Muuttaa reseptin nimeä.
 
         Args:
